@@ -1,0 +1,10 @@
+/* Responsive helpers for the wedding site */
+@media (min-width: 768px) {
+  .hero-monogram {
+    width: 90px !important;
+    height: 90px !important;
+  }
+  .hero-monogram span {
+    font-size: 40px !important;
+  }
+}
