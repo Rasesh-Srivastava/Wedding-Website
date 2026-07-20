@@ -41,7 +41,7 @@ export default function GallerySlide() {
           variants={scaleIn}
         >
           <img 
-            src="/couple.png" 
+            src={import.meta.env.BASE_URL + "couple.png"} 
             alt="Couple 1"
             style={{
               width: '100%',
@@ -59,7 +59,7 @@ export default function GallerySlide() {
           variants={scaleIn}
         >
           <img 
-            src="/couple2.png" 
+            src={import.meta.env.BASE_URL + "couple2.png"} 
             alt="Couple 2"
             style={{
               width: '100%',

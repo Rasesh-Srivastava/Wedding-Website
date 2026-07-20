@@ -1,6 +1,6 @@
 <section style={{ position:'relative', height:'100svh' }}>
   {/* Background photo */}
-  <img src='/couple.jpg' style={{
+  <img src={import.meta.env.BASE_URL + 'couple.png'} style={{
     position:'absolute', inset:0,
     width:'100%', height:'100%',
     objectFit:'cover',

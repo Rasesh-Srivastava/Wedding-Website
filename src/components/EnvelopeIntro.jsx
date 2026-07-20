@@ -58,7 +58,7 @@ export default function EnvelopeIntro({ onComplete }) {
             exit={{ opacity: 0, y: 80, transition: { duration: 0.6, ease: 'easeIn' } }}
           >
             <motion.img
-              src="/envelope.jpeg"
+              src={import.meta.env.BASE_URL + "envelope.jpeg"}
               alt="Wedding Invitation Envelope"
               style={{
                 width: 'min(220px, 55vw)',

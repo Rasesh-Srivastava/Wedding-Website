@@ -48,7 +48,7 @@ function App() {
               }}
             >
               <img
-                src="/couple.png"
+                src={import.meta.env.BASE_URL + "couple.png"}
                 alt="Couple"
                 style={{
                   width: '100%',
