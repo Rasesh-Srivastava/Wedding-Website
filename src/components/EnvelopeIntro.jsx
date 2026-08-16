@@ -14,7 +14,7 @@ export default function EnvelopeIntro({ onComplete }) {
     setTimeout(() => {
       sessionStorage.setItem('invited', 'true')
       onComplete()
-    }, 2200)
+    }, 800)
   }
 
   return (
@@ -23,7 +23,7 @@ export default function EnvelopeIntro({ onComplete }) {
       style={{
         position: 'fixed',
         inset: 0,
-        background: 'linear-gradient(160deg, #fdf8f0, #f5ece0, #efe2d0)',
+        background: '#1A292F',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
@@ -58,7 +58,7 @@ export default function EnvelopeIntro({ onComplete }) {
             exit={{ opacity: 0, y: 80, transition: { duration: 0.6, ease: 'easeIn' } }}
           >
             <motion.img
-              src={import.meta.env.BASE_URL + "envelope.jpeg"}
+              src={import.meta.env.BASE_URL + "envelope.png"}
               alt="Wedding Invitation Envelope"
               style={{
                 width: 'min(220px, 55vw)',
@@ -76,7 +76,7 @@ export default function EnvelopeIntro({ onComplete }) {
               style={{
                 fontFamily: "'Great Vibes', cursive",
                 fontSize: 'clamp(18px, 5vw, 24px)',
-                color: '#4a2208',
+                color: '#c9942a',
                 margin: 0,
                 letterSpacing: '0.5px',
               }}
@@ -85,30 +85,6 @@ export default function EnvelopeIntro({ onComplete }) {
             >
               Tap to open
             </motion.p>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      {/* Revealed message after opening */}
-      <AnimatePresence>
-        {opened && (
-          <motion.div
-            key="reveal-msg"
-            initial={{ opacity: 0, scale: 0.85 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.4, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            style={{ textAlign: 'center' }}
-          >
-            <p
-              style={{
-                fontFamily: "'Great Vibes', cursive",
-                fontSize: 'clamp(32px, 8vw, 48px)',
-                color: '#c9942a',
-                margin: 0,
-              }}
-            >
-              You're Invited
-            </p>
           </motion.div>
         )}
       </AnimatePresence>
