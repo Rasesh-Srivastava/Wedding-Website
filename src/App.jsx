@@ -355,7 +355,8 @@ function App() {
                 alignItems: 'center',
                 boxSizing: 'border-box',
                 borderBottom: '1px solid #2C3730',
-                padding: '80px 24px'
+                padding: '80px 24px',
+                overflow: 'hidden'
               }}
             >
               {/* Bottom — Elegant block with names */}
@@ -370,10 +371,11 @@ function App() {
                   borderRadius: '16px',
                   padding: 'clamp(20px, 4vw, 40px) clamp(24px, 5vw, 60px) clamp(36px, 6vw, 50px)',
                   margin: '0 auto',
-                  maxWidth: 'min(90vw, 600px)',
+                  maxWidth: '600px',
                   width: '100%',
                   textAlign: 'center',
                   boxShadow: '0 8px 32px rgba(0,0,0,0.3)',
+                  boxSizing: 'border-box',
                 }}
               >
                 <p
@@ -456,7 +458,8 @@ function App() {
                   lineHeight: 1.6,
                   margin: '40px auto 0',
                   fontStyle: 'italic',
-                  padding: '0 24px'
+                  padding: '0 24px',
+                  boxSizing: 'border-box'
                 }}
               >
                 "Two souls, one journey, woven by destiny. We request the joy of your presence as they begin their forever."
