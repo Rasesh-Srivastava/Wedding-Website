@@ -376,6 +376,10 @@ function App() {
                   textAlign: 'center',
                   boxShadow: '0 8px 32px rgba(0,0,0,0.3)',
                   boxSizing: 'border-box',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  justifyContent: 'center',
                 }}
               >
                 <p
@@ -385,10 +389,13 @@ function App() {
                     color: '#c9942a',
                     margin: '0 0 4px',
                     lineHeight: 1.2,
+                    textAlign: 'center',
+                    width: '100%',
+                    letterSpacing: '0',
+                    transform: 'translateX(-0.12em)',
+                    display: 'block'
                   }}
-                >
-                  Shivi
-                </p>
+                >Shivi</p>
                 <p
                   style={{
                     fontFamily: "'EB Garamond', serif",
@@ -397,7 +404,9 @@ function App() {
                     letterSpacing: 'clamp(4px, 1vw, 8px)',
                     textTransform: 'uppercase',
                     margin: 'clamp(4px, 1vw, 12px) 0',
-                    opacity: 0.8
+                    opacity: 0.8,
+                    textAlign: 'center',
+                    width: '100%'
                   }}
                 >
                   — and —
@@ -409,10 +418,13 @@ function App() {
                     color: '#c9942a',
                     margin: '0 0 12px',
                     lineHeight: 1.2,
+                    textAlign: 'center',
+                    width: '100%',
+                    letterSpacing: '0',
+                    transform: 'translateX(-0.12em)',
+                    display: 'block'
                   }}
-                >
-                  Ishank
-                </p>
+                >Ishank</p>
                 <p
                   style={{
                     fontFamily: "'EB Garamond', serif",
@@ -420,26 +432,25 @@ function App() {
                     color: '#fdf8f0',
                     letterSpacing: 'clamp(1px, 0.5vw, 3px)',
                     margin: 0,
-                    opacity: 0.9
+                    opacity: 0.9,
+                    textAlign: 'center',
+                    width: '100%'
                   }}
                 >
                   are getting married!
                 </p>
                 
-                {/* Wedding Hashtag */}
-                <p
+                {/* Wedding Hashtag Image */}
+                <img
+                  src={import.meta.env.BASE_URL + 'ShiviSeIshkHai.png'}
+                  alt="#ShiviSeIshkHai"
                   style={{
-                    fontFamily: "'EB Garamond', serif",
-                    fontSize: 'clamp(14px, 2vw, 18px)',
-                    color: '#c9942a',
-                    letterSpacing: '2px',
-                    margin: '20px 0 0 0',
-                    opacity: 0.9,
-                    fontWeight: 'bold'
+                    maxWidth: 'min(280px, 75%)',
+                    height: 'auto',
+                    marginTop: '20px',
+                    display: 'block'
                   }}
-                >
-                  #ShiviSeIshkHai
-                </p>
+                />
               </motion.div>
 
               {/* Invitation Message (poetic and gold-colored) */}
@@ -469,6 +480,8 @@ function App() {
             <CountdownSlide />
 
             <ShowcaseSlide />
+          
+            <GallerySlide />
           
           <StorySlide />
           
@@ -527,8 +540,6 @@ function App() {
             dressCode="Black Tie / Formal"
           />
 
-          <GallerySlide />
-          
           <RSVPSlide />
           
           <FinalSlide />

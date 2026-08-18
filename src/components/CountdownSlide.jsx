@@ -1,12 +1,15 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useCountdown } from '../hooks/useCountdown';
+import confetti from 'canvas-confetti';
 
 export default function CountdownSlide() {
   const time = useCountdown('2026-12-03T10:00:00');
   const canvasRef = useRef(null);
   const isDrawingRef = useRef(false);
   const [isRevealed, setIsRevealed] = useState(false);
+  const confettiCanvasRef = useRef(null);
+  const confettiIntervalRef = useRef(null);
 
   // Set up metallic gold scratch overlay surface
   useEffect(() => {
@@ -38,6 +41,15 @@ export default function CountdownSlide() {
       ctx.fillStyle = grad;
       ctx.fillRect(0, 0, canvas.width, canvas.height);
       drawOverlayText(ctx, canvas.width, canvas.height);
+    };
+  }, []);
+
+  // Clean up confetti interval on unmount
+  useEffect(() => {
+    return () => {
+      if (confettiIntervalRef.current) {
+        clearInterval(confettiIntervalRef.current);
+      }
     };
   }, []);
 
@@ -115,55 +127,90 @@ export default function CountdownSlide() {
       setIsRevealed(true);
       // Clear entire canvas on crossing threshold
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      triggerPartyConfetti();
+      triggerConfettiBurst();
     }
   };
 
-  // Launch party poppers from sides on reveal
-  const triggerPartyConfetti = () => {
-    const container = document.getElementById('confetti-container');
-    if (!container) return;
+  // Full-screen confetti celebration using canvas-confetti
+  const triggerConfettiBurst = useCallback(() => {
+    // Create a dedicated full-screen canvas for confetti
+    const confettiCanvas = document.createElement('canvas');
+    confettiCanvas.style.position = 'fixed';
+    confettiCanvas.style.top = '0';
+    confettiCanvas.style.left = '0';
+    confettiCanvas.style.width = '100vw';
+    confettiCanvas.style.height = '100vh';
+    confettiCanvas.style.pointerEvents = 'none';
+    confettiCanvas.style.zIndex = '99999';
+    document.body.appendChild(confettiCanvas);
+    confettiCanvasRef.current = confettiCanvas;
 
-    const colors = ['#dfa943', '#c9942a', '#e5c07b', '#ffb366', '#fdf8f0', '#92a3a8'];
+    // Handle resize
+    const handleResize = () => {
+      confettiCanvas.width = window.innerWidth;
+      confettiCanvas.height = window.innerHeight;
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
 
-    // Left Popper
-    for (let i = 0; i < 40; i++) {
-      const el = document.createElement('div');
-      el.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-      el.style.width = `${6 + Math.random() * 8}px`;
-      el.style.height = `${10 + Math.random() * 12}px`;
-      el.style.left = '0px';
-      el.style.bottom = '20%';
-      el.style.position = 'fixed';
-      el.style.zIndex = '99999';
-      el.style.borderRadius = '2px';
-      el.style.animation = `confetti-fly-left ${1.5 + Math.random() * 1.5}s cubic-bezier(0.25, 1, 0.5, 1) forwards`;
-      el.style.animationDelay = `${Math.random() * 0.25}s`;
-      container.appendChild(el);
-      
-      // Auto clean
-      setTimeout(() => el.remove(), 3000);
-    }
+    // Create a confetti instance bound to our canvas
+    const myConfetti = confetti.create(confettiCanvas, { resize: true, useWorker: true });
 
-    // Right Popper
-    for (let i = 0; i < 40; i++) {
-      const el = document.createElement('div');
-      el.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-      el.style.width = `${6 + Math.random() * 8}px`;
-      el.style.height = `${10 + Math.random() * 12}px`;
-      el.style.right = '0px';
-      el.style.bottom = '20%';
-      el.style.position = 'fixed';
-      el.style.zIndex = '99999';
-      el.style.borderRadius = '2px';
-      el.style.animation = `confetti-fly-right ${1.5 + Math.random() * 1.5}s cubic-bezier(0.25, 1, 0.5, 1) forwards`;
-      el.style.animationDelay = `${Math.random() * 0.25}s`;
-      container.appendChild(el);
+    const weddingColors = ['#c9942a', '#e5c07b', '#fbeaa6', '#dfa943', '#fdf8f0', '#ffb366'];
 
-      // Auto clean
-      setTimeout(() => el.remove(), 3000);
-    }
-  };
+    // Initial burst — two big side cannons
+    myConfetti({
+      particleCount: 80,
+      spread: 70,
+      origin: { x: 0.05, y: 0.6 },
+      angle: 55,
+      colors: weddingColors,
+      startVelocity: 45,
+      gravity: 0.8,
+      ticks: 300
+    });
+    myConfetti({
+      particleCount: 80,
+      spread: 70,
+      origin: { x: 0.95, y: 0.6 },
+      angle: 125,
+      colors: weddingColors,
+      startVelocity: 45,
+      gravity: 0.8,
+      ticks: 300
+    });
+
+    // Gentle continuous fall for 5 seconds
+    let elapsed = 0;
+    confettiIntervalRef.current = setInterval(() => {
+      elapsed += 200;
+      if (elapsed > 5000) {
+        clearInterval(confettiIntervalRef.current);
+        confettiIntervalRef.current = null;
+        // Clean up the canvas after particles settle
+        setTimeout(() => {
+          window.removeEventListener('resize', handleResize);
+          if (confettiCanvasRef.current) {
+            confettiCanvasRef.current.remove();
+            confettiCanvasRef.current = null;
+          }
+        }, 4000);
+        return;
+      }
+
+      myConfetti({
+        particleCount: 3,
+        spread: 160,
+        origin: { x: Math.random(), y: -0.05 },
+        colors: weddingColors,
+        startVelocity: 8,
+        gravity: 0.5,
+        drift: (Math.random() - 0.5) * 0.5,
+        ticks: 250,
+        scalar: 0.9
+      });
+    }, 200);
+  }, []);
 
   return (
     <section style={{
@@ -178,9 +225,6 @@ export default function CountdownSlide() {
       position: 'relative',
       overflow: 'hidden'
     }}>
-      {/* Confetti Container Hook */}
-      <div id="confetti-container" style={{ position: 'absolute', inset: 0, pointerEvents: 'none', zIndex: 9999 }} />
-
       <div style={{ width: '100%', maxWidth: '500px', zIndex: 10 }}>
         {/* Title */}
         <h2 style={{
