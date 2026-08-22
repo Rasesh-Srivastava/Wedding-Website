@@ -193,3 +193,50 @@ video::-webkit-media-controls-enclosure { display: none !important; }
     margin: 40px 0;
   }
 }
+
+/* Venue section responsive styling */
+.venue-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 36px;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.venue-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  max-width: 420px;
+  order: 2; /* Mobile: text & button at bottom */
+}
+
+.venue-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 440px;
+  order: 1; /* Mobile: image at top */
+}
+
+@media (min-width: 768px) {
+  .venue-container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 48px;
+  }
+  .venue-left {
+    align-items: flex-start;
+    text-align: left;
+    order: 1; /* Desktop: text on left */
+  }
+  .venue-right {
+    order: 2; /* Desktop: image on right */
+  }
+}

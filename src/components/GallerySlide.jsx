@@ -71,7 +71,7 @@ export default function GallerySlide() {
 
   return (
     <section style={{
-      padding: '60px 16px',
+      padding: '110px 16px 60px',
       background: '#1A292F', // lighter bg (alternating)
       color: '#c9942a',
       display: 'flex',
@@ -85,6 +85,29 @@ export default function GallerySlide() {
       overflow: 'hidden',
       boxSizing: 'border-box'
     }}>
+      {/* Full Edge-to-Edge Decorative Diwali Lights Banner at Top */}
+      <img
+        src={import.meta.env.BASE_URL + 'Diwali_Lights.png'}
+        alt="Diwali Lights"
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          width: '100%',
+          maxWidth: '100%',
+          height: 'auto',
+          maxHeight: '110px',
+          objectFit: 'cover',
+          objectPosition: 'top center',
+          pointerEvents: 'none',
+          zIndex: 15,
+          transition: 'filter 0.8s ease, opacity 0.8s ease',
+          filter: isLit ? 'brightness(1) contrast(1)' : 'brightness(0.3) contrast(1.1)',
+          opacity: isLit ? 1 : 0.45
+        }}
+      />
+
       {/* Interactive Lamp Pull Rope (Top Right) */}
       <div 
         onClick={handlePullRope}
@@ -95,8 +118,8 @@ export default function GallerySlide() {
         style={{
           position: 'absolute',
           top: 0,
-          right: 'clamp(16px, 4vw, 32px)',
-          zIndex: 50,
+          right: 'clamp(12px, 3vw, 24px)',
+          zIndex: 100,
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
@@ -110,20 +133,74 @@ export default function GallerySlide() {
           animate={{ y: isPulling ? 26 : 0 }}
           transition={{ type: 'spring', stiffness: 450, damping: 15 }}
           style={{
+            position: 'relative',
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center'
           }}
         >
+          {/* Pointed Tooltip Box dynamically anchored to the Rope Handle */}
+          <AnimatePresence>
+            {((!isLit) || (isLit && isRopeHovered)) && (
+              <motion.div
+                initial={{ opacity: 0, x: 8 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: 8 }}
+                transition={{ duration: 0.25 }}
+                style={{
+                  position: 'absolute',
+                  right: '100%',
+                  top: '60%',
+                  transform: 'translateY(-50%)',
+                  marginRight: '12px',
+                  background: 'rgba(21, 32, 37, 0.95)',
+                  border: '1px solid #c9942a',
+                  borderRadius: '8px',
+                  padding: '6px 12px',
+                  whiteSpace: 'nowrap',
+                  boxShadow: '0 4px 16px rgba(0,0,0,0.5)',
+                  backdropFilter: 'blur(6px)',
+                  zIndex: 110,
+                  pointerEvents: 'none'
+                }}
+              >
+                {/* Pointed right-facing arrow */}
+                <div style={{
+                  position: 'absolute',
+                  right: '-6px',
+                  top: '50%',
+                  transform: 'translateY(-50%) rotate(45deg)',
+                  width: '9px',
+                  height: '9px',
+                  background: '#152025',
+                  borderRight: '1px solid #c9942a',
+                  borderTop: '1px solid #c9942a'
+                }} />
+
+                <span style={{
+                  fontFamily: "'EB Garamond', serif",
+                  fontSize: 'clamp(10px, 1.8vw, 12px)',
+                  color: '#c9942a',
+                  letterSpacing: '1px',
+                  textTransform: 'uppercase',
+                  fontWeight: 'bold',
+                  display: 'block'
+                }}>
+                  {!isLit ? "Turn Lights On" : "Turn Lights Off"}
+                </span>
+              </motion.div>
+            )}
+          </AnimatePresence>
+
           {useCustomRope ? (
             <img
               src={import.meta.env.BASE_URL + 'pull_rope.png'}
               alt="Pull Rope"
               onError={() => setUseCustomRope(false)}
               style={{
-                width: 'clamp(36px, 8vw, 52px)',
+                width: 'clamp(54px, 12vw, 78px)',
                 height: 'auto',
-                maxHeight: '130px',
+                maxHeight: '195px',
                 objectFit: 'contain',
                 filter: isLit 
                   ? 'drop-shadow(0 0 10px rgba(201, 148, 42, 0.8))' 
@@ -167,28 +244,6 @@ export default function GallerySlide() {
             </>
           )}
         </motion.div>
-
-        {/* Hover-only Text Label Below Rope */}
-        <motion.span
-          initial={{ opacity: 0, y: -4 }}
-          animate={{ opacity: isRopeHovered ? 1 : 0, y: isRopeHovered ? 0 : -4 }}
-          transition={{ duration: 0.2 }}
-          style={{
-            fontFamily: "'EB Garamond', serif",
-            fontSize: '11px',
-            color: '#c9942a',
-            letterSpacing: '1px',
-            marginTop: '8px',
-            textTransform: 'uppercase',
-            textAlign: 'center',
-            whiteSpace: 'nowrap',
-            textShadow: '0 2px 4px rgba(0,0,0,0.8)',
-            fontWeight: 'bold',
-            pointerEvents: 'none'
-          }}
-        >
-          {isLit ? "Turn Lights Off" : "Turn Lights On"}
-        </motion.span>
       </div>
 
       {/* Main Page Content Wrapper (Dimmers when isLit is false) */}
@@ -200,7 +255,8 @@ export default function GallerySlide() {
         transition: 'filter 0.8s ease, opacity 0.8s ease',
         filter: isLit ? 'brightness(1) contrast(1)' : 'brightness(0.3) contrast(1.1)',
         opacity: isLit ? 1 : 0.45,
-        pointerEvents: isLit ? 'auto' : 'none'
+        pointerEvents: isLit ? 'auto' : 'none',
+        zIndex: 10
       }}>
         {/* Header */}
         <motion.div

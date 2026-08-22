@@ -7,7 +7,7 @@ export default function GaneshSlide({ onComplete }) {
     if (onComplete) {
       const timer = setTimeout(() => {
         onComplete();
-      }, 2000);
+      }, 3000);
       return () => clearTimeout(timer);
     }
   }, [onComplete]);

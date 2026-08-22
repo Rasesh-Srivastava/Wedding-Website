@@ -266,22 +266,24 @@ export default function CountdownSlide() {
             height: '100%'
           }}>
             <p style={{
+              fontFamily: "'EB Garamond', serif",
+              fontSize: 'clamp(12px, 2.5vw, 15px)',
+              letterSpacing: '3px',
+              color: '#c9942a',
+              textTransform: 'uppercase',
+              margin: '0 0 6px 0',
+              fontWeight: 'bold'
+            }}>
+              Thursday
+            </p>
+            <p style={{
               fontFamily: "'Great Vibes', cursive",
-              fontSize: 'clamp(32px, 8vw, 42px)',
+              fontSize: 'clamp(32px, 8vw, 44px)',
               color: '#fdf8f0',
-              margin: '0 0 8px',
+              margin: 0,
               lineHeight: 1.1
             }}>
               December 3, 2026
-            </p>
-            <p style={{
-              fontFamily: "'EB Garamond', serif",
-              fontSize: '12px',
-              letterSpacing: '1px',
-              color: '#c9942a',
-              margin: 0
-            }}>
-              #ShiviSeIshkHai
             </p>
           </div>
 

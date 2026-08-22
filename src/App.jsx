@@ -9,6 +9,7 @@ import RSVPSlide from './components/RSVPSlide'
 import FinalSlide from './components/FinalSlide'
 import GaneshSlide from './components/GaneshSlide'
 import ShowcaseSlide from './components/ShowcaseSlide'
+import VenueSlide from './components/VenueSlide'
 import './App.css'
 
 function App() {
@@ -482,6 +483,13 @@ function App() {
             <ShowcaseSlide />
           
             <GallerySlide />
+          
+            <VenueSlide
+              venueName="Hotel Crowne Plaza"
+              venueAddress="Surajpur Chowk, Institutional Green, Greater Noida, Uttar Pradesh, India, PIN: 201306"
+              mapsUrl="https://www.google.com/maps/place/Crowne+Plaza+Greater+Noida+by+IHG/@28.51446,77.4662551,17z/data=!4m9!3m8!1s0x390ce97e10444a3f:0xa3108e3e1d787708!5m2!4m1!1i2!8m2!3d28.51446!4d77.46883!16s%2Fg%2F1ptvqb3p_?entry=ttu&g_ep=EgoyMDI2MDgxOS4wIKXMDSoASAFQAw%3D%3D"
+              venueImgSrc={import.meta.env.BASE_URL + 'venue.jpeg'}
+            />
           
           <StorySlide />
           
