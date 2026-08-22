@@ -116,18 +116,19 @@ function App() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8 }}
           >
-            {/* ── Hero Section ── */}
+            {/* ── Hero Section (Slide 1) ── */}
              <section
                style={{
                  position: 'relative',
-                 minHeight: '100vh',
+                 minHeight: 'auto',
                  background: '#1A292F',
                  display: 'flex',
                  flexDirection: 'column',
-                 justifyContent: 'space-between',
+                 justifyContent: 'flex-start',
+                 alignItems: 'center',
                  boxSizing: 'border-box',
                  borderBottom: '1px solid #2C3730',
-                 paddingBottom: '24px'
+                 paddingBottom: '48px'
                }}
              >
               {/* Top — Logo */}
@@ -339,9 +340,6 @@ function App() {
               >
                 {isPlaying ? '⏸' : '▶'}
               </button>
-
-              {/* Spacer — centering block and pushing content up */}
-              <div style={{ flex: 1, minHeight: '40px' }} />
             </section>
 
             {/* ── Names Section (New Slide) ── */}

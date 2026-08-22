@@ -6,20 +6,20 @@ export default function ShowcaseSlide({
 }) {
   return (
     <section style={{
-      padding: '80px 24px',
+      padding: 'clamp(48px, 6vh, 60px) 24px',
       background: '#152025', // deep elegant background (darker bg)
       color: '#fdf8f0',
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
       borderBottom: '1px solid #2C3730',
-      minHeight: '100vh',
+      minHeight: 'auto',
       justifyContent: 'center',
       position: 'relative',
       overflow: 'hidden'
     }}>
       {/* Global Page Header */}
-      <div style={{ textAlign: 'center', marginBottom: '48px', width: '100%', zIndex: 10 }}>
+      <div style={{ textAlign: 'center', marginBottom: '32px', width: '100%', zIndex: 10 }}>
         <p style={{
           fontFamily: "'EB Garamond', serif",
           fontSize: 'clamp(10px, 1.5vw, 13px)',

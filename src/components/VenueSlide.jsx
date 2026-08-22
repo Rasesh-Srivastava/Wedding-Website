@@ -8,14 +8,14 @@ export default function VenueSlide({
 }) {
   return (
     <section style={{
-      padding: '80px 24px',
+      padding: 'clamp(48px, 6vh, 60px) 24px',
       background: '#152025', // darker bg (alternating pattern)
       color: '#fdf8f0',
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
       borderBottom: '1px solid #2C3730',
-      minHeight: '100vh',
+      minHeight: 'auto',
       justifyContent: 'center',
       position: 'relative',
       overflow: 'hidden',
@@ -27,7 +27,7 @@ export default function VenueSlide({
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
-        style={{ textAlign: 'center', marginBottom: '44px', width: '100%', zIndex: 10 }}
+        style={{ textAlign: 'center', marginBottom: '32px', width: '100%', zIndex: 10 }}
       >
         <h2 style={{
           fontFamily: "'Great Vibes', cursive",
