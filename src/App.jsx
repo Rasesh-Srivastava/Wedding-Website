@@ -10,6 +10,7 @@ import FinalSlide from './components/FinalSlide'
 import GaneshSlide from './components/GaneshSlide'
 import ShowcaseSlide from './components/ShowcaseSlide'
 import VenueSlide from './components/VenueSlide'
+import WeddingEvents from './components/WeddingEvents'
 import './App.css'
 
 function App() {
@@ -483,68 +484,15 @@ function App() {
             <GallerySlide />
           
             <VenueSlide
-              venueName="Hotel Crowne Plaza"
+              venueName="Crowne Plaza by IHG"
               venueAddress="Surajpur Chowk, Institutional Green, Greater Noida, Uttar Pradesh, India, PIN: 201306"
               mapsUrl="https://www.google.com/maps/place/Crowne+Plaza+Greater+Noida+by+IHG/@28.51446,77.4662551,17z/data=!4m9!3m8!1s0x390ce97e10444a3f:0xa3108e3e1d787708!5m2!4m1!1i2!8m2!3d28.51446!4d77.46883!16s%2Fg%2F1ptvqb3p_?entry=ttu&g_ep=EgoyMDI2MDgxOS4wIKXMDSoASAFQAw%3D%3D"
               venueImgSrc={import.meta.env.BASE_URL + 'venue.jpeg'}
             />
           
-          <StorySlide />
-          
-          <EventSlide
-            label="THE FIRST HUES OF LOVE"
-            heading="Mehendi"
-            headingColor="#1e5c2a"
-            description="Begin with henna, music and memories."
-            date="13 Feb 2027"
-            time="04:00 PM onwards"
-            venue="The Royal Gardens, Mumbai"
-            dressCode="Green & Floral"
-          />
+            <WeddingEvents />
 
-          <EventSlide
-            label="A NIGHT OF MELODIES"
-            heading="Sangeet"
-            headingColor="#8b1a6d"
-            description="Dance, sing, and celebrate the union of two souls."
-            date="13 Feb 2027"
-            time="08:00 PM onwards"
-            venue="Grand Ballroom, Taj Hotel"
-            dressCode="Glamorous Indian Evening Wear"
-          />
-
-          <EventSlide
-            label="THE GOLDEN RITUAL"
-            heading="Haldi"
-            headingColor="#d4a017"
-            description="A sacred tradition of blessings and turmeric."
-            date="14 Feb 2027"
-            time="10:00 AM onwards"
-            venue="Courtyard, Taj Hotel"
-            dressCode="Shades of Yellow"
-          />
-
-          <EventSlide
-            label="THE SACRED UNION"
-            heading="Wedding Ceremony"
-            headingColor="#c9942a"
-            description="Where two hearts become one, forever."
-            date="15 Feb 2027"
-            time="10:00 AM onwards"
-            venue="The Royal Gardens, Mumbai"
-            dressCode="Traditional Indian"
-          />
-
-          <EventSlide
-            label="AN EVENING OF JOY"
-            heading="Reception"
-            headingColor="#2a4a7f"
-            description="Dine, dance, and make memories that last a lifetime."
-            date="15 Feb 2027"
-            time="07:30 PM onwards"
-            venue="Grand Ballroom, Taj Hotel"
-            dressCode="Black Tie / Formal"
-          />
+            <StorySlide />
 
           <RSVPSlide />
           

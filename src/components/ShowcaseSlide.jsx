@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion';
 
 export default function ShowcaseSlide({
-  groomImgSrc = import.meta.env.BASE_URL + 'couple.png', // falls back to couple.png
-  brideImgSrc = import.meta.env.BASE_URL + 'couple2.png' // falls back to couple2.png
+  groomImgSrc = import.meta.env.BASE_URL + 'Groom.jpeg',
+  brideImgSrc = import.meta.env.BASE_URL + 'Bride.jpeg'
 }) {
   return (
     <section style={{

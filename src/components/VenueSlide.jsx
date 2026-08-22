@@ -4,7 +4,7 @@ export default function VenueSlide({
   venueName = 'The Royal Palace Hotel',
   venueAddress = '123 Celebration Boulevard, Golden City, India',
   mapsUrl = 'https://maps.google.com',
-  venueImgSrc = import.meta.env.BASE_URL + 'couple.png'
+  venueImgSrc = import.meta.env.BASE_URL + 'venue.jpeg'
 }) {
   return (
     <section style={{
@@ -127,7 +127,6 @@ export default function VenueSlide({
           <div style={{
             width: '100%',
             maxWidth: '440px',
-            aspectRatio: '16 / 10',
             borderRadius: '16px',
             border: '1px solid rgba(201, 148, 42, 0.3)',
             boxShadow: '0 12px 36px rgba(0,0,0,0.4)',
@@ -135,20 +134,7 @@ export default function VenueSlide({
             background: '#1A292F',
             position: 'relative'
           }}>
-            {/* Ambient Blurred Background */}
-            <div
-              style={{
-                position: 'absolute',
-                inset: 0,
-                backgroundImage: `url(${venueImgSrc})`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-                filter: 'blur(20px) brightness(0.4)',
-                transform: 'scale(1.1)',
-                pointerEvents: 'none'
-              }}
-            />
-            {/* Main Photo (100% visible, no cropping) */}
+            {/* Main Photo (100% visible, height adjusts automatically to image ratio) */}
             <img
               src={venueImgSrc}
               alt={venueName}
@@ -158,12 +144,9 @@ export default function VenueSlide({
                 e.target.src = import.meta.env.BASE_URL + 'couple.png';
               }}
               style={{
-                position: 'relative',
                 width: '100%',
-                height: '100%',
-                objectFit: 'contain',
-                display: 'block',
-                zIndex: 1
+                height: 'auto',
+                display: 'block'
               }}
             />
           </div>

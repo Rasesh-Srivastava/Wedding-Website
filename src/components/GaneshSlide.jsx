@@ -2,7 +2,10 @@ import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { fadeUp } from '../animations';
 
-export default function GaneshSlide({ onComplete }) {
+export default function GaneshSlide({
+  onComplete,
+  mantraDesktopOffsetY = '61px' // <-- Adjust this value (e.g. '20px', '35px', '50px') for trial and error on laptop view!
+}) {
   useEffect(() => {
     if (onComplete) {
       const timer = setTimeout(() => {
@@ -74,7 +77,9 @@ export default function GaneshSlide({ onComplete }) {
           <img
             src={import.meta.env.BASE_URL + "mantra.png"}
             alt="Mantra"
+            className="ganesh-mantra-img"
             style={{
+              '--mantra-desktop-y': mantraDesktopOffsetY,
               width: '100%',
               maxWidth: '320px',
               height: 'auto',

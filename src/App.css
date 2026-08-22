@@ -239,4 +239,251 @@ video::-webkit-media-controls-enclosure { display: none !important; }
   .venue-right {
     order: 2; /* Desktop: image on right */
   }
+  .ganesh-mantra-img {
+    margin-top: var(--mantra-desktop-y, 35px) !important;
+  }
+}
+
+/* Wedding Events Timeline Styling */
+.events-section {
+  padding: clamp(60px, 8vh, 90px) 20px;
+  background: #1A292F; /* Lighter alternating background */
+  color: #fdf8f0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-bottom: 1px solid #2C3730;
+  min-height: auto;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.events-timeline-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* Central Vertical Line - Desktop Only */
+.events-center-line {
+  display: none;
+}
+
+/* Mobile Single Column Layout - No vertical line on mobile */
+.event-row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+.event-card {
+  position: relative;
+  overflow: visible;
+  width: 100%;
+  max-width: 500px;
+  background: #152025;
+  border: 1px solid rgba(201, 148, 42, 0.25);
+  border-radius: 16px;
+  padding: clamp(24px, 4vw, 36px) clamp(20px, 4vw, 36px);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+  box-sizing: border-box;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.event-card:hover {
+  border-color: rgba(201, 148, 42, 0.5);
+}
+
+.event-date-badge-wrapper {
+  margin-bottom: 12px;
+}
+
+.event-date-badge {
+  display: inline-block;
+  background: rgba(201, 148, 42, 0.12);
+  border: 1px solid rgba(201, 148, 42, 0.3);
+  color: #c9942a;
+  font-family: 'EB Garamond', serif;
+  font-size: 11px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  font-weight: bold;
+  border-radius: 20px;
+  padding: 4px 16px;
+}
+
+.event-fancy-name {
+  font-family: 'Great Vibes', cursive;
+  font-size: clamp(34px, 6vw, 48px);
+  color: #c9942a;
+  margin: 0 0 4px 0;
+  font-weight: normal;
+  line-height: 1.2;
+}
+
+.event-actual-name {
+  font-family: 'EB Garamond', serif;
+  font-size: clamp(12px, 1.8vw, 14px);
+  color: #fdf8f0;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  margin: 0 0 16px 0;
+  font-weight: normal;
+  opacity: 0.9;
+}
+
+.event-card-divider {
+  width: 40px;
+  height: 1px;
+  background: rgba(201, 148, 42, 0.3);
+  margin: 0 0 16px 0;
+}
+
+.event-details-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px 12px;
+  font-family: 'EB Garamond', serif;
+  font-size: clamp(13px, 1.8vw, 15px);
+  color: #fdf8f0;
+  opacity: 0.9;
+  margin: 0 0 12px 0;
+}
+
+.event-detail-bullet {
+  color: #c9942a;
+  opacity: 0.5;
+}
+
+.event-dress-code {
+  font-family: 'EB Garamond', serif;
+  font-size: clamp(12px, 1.6vw, 14px);
+  color: #fdf8f0;
+  opacity: 0.85;
+  margin: 0 0 14px 0;
+  letter-spacing: 0.5px;
+}
+
+.event-description {
+  font-family: 'EB Garamond', serif;
+  font-size: clamp(14px, 2vw, 16px);
+  font-style: italic;
+  color: #fdf8f0;
+  opacity: 0.75;
+  line-height: 1.6;
+  margin: 0 auto;
+  max-width: 380px;
+  width: 100%;
+  text-align: left !important;
+  box-sizing: border-box;
+}
+
+/* Desktop Alternating Left/Right Layout & Markers */
+.event-marker-desktop,
+.event-connector {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .events-timeline-wrapper {
+    gap: 52px;
+  }
+
+  .events-center-line {
+    display: block;
+    position: absolute;
+    top: 30px;
+    bottom: 30px;
+    left: 50%;
+    width: 2px;
+    background: linear-gradient(180deg, rgba(201, 148, 42, 0.1) 0%, rgba(201, 148, 42, 0.6) 15%, rgba(201, 148, 42, 0.6) 85%, rgba(201, 148, 42, 0.1) 100%);
+    transform: translateX(-50%);
+    z-index: 1;
+  }
+
+  .event-row.left-event {
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+
+  .event-row.right-event {
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+
+  .event-row.left-event .event-card {
+    width: calc(50% - 44px);
+    max-width: 440px;
+    text-align: right;
+    align-items: flex-end;
+  }
+
+  .event-row.left-event .event-details-row {
+    justify-content: flex-end;
+  }
+
+  .event-row.right-event .event-card {
+    width: calc(50% - 44px);
+    max-width: 440px;
+    text-align: left;
+    align-items: flex-start;
+  }
+
+  .event-row.right-event .event-details-row {
+    justify-content: flex-start;
+  }
+
+  /* Desktop Marker & Connector */
+  .event-marker-desktop {
+    display: flex;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: #1A292F;
+    border: 1.5px solid #c9942a;
+    box-shadow: 0 0 14px rgba(201, 148, 42, 0.35);
+    align-items: center;
+    justify-content: center;
+    color: #c9942a;
+    font-size: 18px;
+    z-index: 3;
+  }
+
+  /* Connector line from card to central line */
+  .event-connector {
+    display: block;
+    position: absolute;
+    top: 50%;
+    height: 1px;
+    background: rgba(201, 148, 42, 0.35);
+    z-index: 1;
+  }
+
+  .event-row.left-event .event-connector {
+    left: calc(50% - 44px);
+    right: 50%;
+  }
+
+  .event-row.right-event .event-connector {
+    left: 50%;
+    right: calc(50% - 44px);
+  }
 }
