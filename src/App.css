@@ -487,3 +487,63 @@ video::-webkit-media-controls-enclosure { display: none !important; }
     right: calc(50% - 44px);
   }
 }
+
+/* ── RSVP Section Responsive Styles ── */
+.rsvp-section {
+  background: #152025;
+  border-top: 1px solid rgba(201, 148, 42, 0.25);
+  border-bottom: 1px solid #2C3730;
+  padding: 36px 24px;
+  color: #fdf8f0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.rsvp-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+  max-width: 750px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.rsvp-question-text {
+  font-family: 'Pinyon Script', cursive;
+  font-size: clamp(36px, 8vw, 56px);
+  color: #c9942a;
+  margin: 0;
+  font-weight: normal;
+  line-height: 1.2;
+}
+
+.rsvp-button {
+  display: inline-block;
+  background: linear-gradient(135deg, #dfa943 0%, #c9942a 100%);
+  color: #152025;
+  border: none;
+  padding: 14px 36px;
+  font-family: 'EB Garamond', serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: clamp(14px, 2vw, 16px);
+  font-weight: bold;
+  border-radius: 30px;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(201, 148, 42, 0.3);
+  transition: transform 0.2s, box-shadow 0.2s;
+  white-space: nowrap;
+}
+
+@media (min-width: 768px) {
+  .rsvp-container {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+    gap: 32px;
+  }
+}

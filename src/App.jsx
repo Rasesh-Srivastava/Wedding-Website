@@ -11,10 +11,12 @@ import GaneshSlide from './components/GaneshSlide'
 import ShowcaseSlide from './components/ShowcaseSlide'
 import VenueSlide from './components/VenueSlide'
 import WeddingEvents from './components/WeddingEvents'
+import SaveTheDateSlide from './components/SaveTheDateSlide'
 import './App.css'
 
 function App() {
   const [stage, setStage] = useState(0) // 0: Envelope, 1: Ganesh, 2: Main Website
+  const [isRsvpUnlocked, setIsRsvpUnlocked] = useState(false)
   const { scrollYProgress } = useScroll()
   const scaleY = useSpring(scrollYProgress, { stiffness: 120, damping: 30 })
 
@@ -492,10 +494,23 @@ function App() {
           
             <WeddingEvents />
 
+            <SaveTheDateSlide onOpen={() => setIsRsvpUnlocked(true)} />
+
+            <AnimatePresence>
+              {isRsvpUnlocked && (
+                <motion.div
+                  initial={{ opacity: 0, height: 0, overflow: 'hidden' }}
+                  animate={{ opacity: 1, height: 'auto', overflow: 'visible' }}
+                  exit={{ opacity: 0, height: 0, overflow: 'hidden' }}
+                  transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                >
+                  <RSVPSlide />
+                </motion.div>
+              )}
+            </AnimatePresence>
+
             <StorySlide />
 
-          <RSVPSlide />
-          
           <FinalSlide />
 
           {/* ── Scroll progress indicator ── */}
