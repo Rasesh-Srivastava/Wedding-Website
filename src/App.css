@@ -490,10 +490,10 @@ video::-webkit-media-controls-enclosure { display: none !important; }
 
 /* ── RSVP Section Responsive Styles ── */
 .rsvp-section {
-  background: #152025;
-  border-top: 1px solid rgba(201, 148, 42, 0.25);
+  background: #1A292F;
+  border-top: 1px solid #2C3730;
   border-bottom: 1px solid #2C3730;
-  padding: 36px 24px;
+  padding: 60px 24px;
   color: #fdf8f0;
   width: 100%;
   box-sizing: border-box;

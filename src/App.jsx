@@ -494,20 +494,9 @@ function App() {
           
             <WeddingEvents />
 
-            <SaveTheDateSlide onOpen={() => setIsRsvpUnlocked(true)} />
+            <SaveTheDateSlide />
 
-            <AnimatePresence>
-              {isRsvpUnlocked && (
-                <motion.div
-                  initial={{ opacity: 0, height: 0, overflow: 'hidden' }}
-                  animate={{ opacity: 1, height: 'auto', overflow: 'visible' }}
-                  exit={{ opacity: 0, height: 0, overflow: 'hidden' }}
-                  transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                >
-                  <RSVPSlide />
-                </motion.div>
-              )}
-            </AnimatePresence>
+            <RSVPSlide scriptUrl='https://script.google.com/macros/s/AKfycbzcbjb17SaZ-JEhKEi-iWEXzvq9HtfIfmICKD5mKfNo6JCmbSgu29kVjArIftPE6rPH/exec'/>
 
             <StorySlide />
 
