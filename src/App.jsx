@@ -135,7 +135,7 @@ function App() {
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3, duration: 0.8 }}
-                style={{ padding: '36px 24px 0', textAlign: 'center' }}
+                style={{ padding: '20px 24px 0', textAlign: 'center' }}
               >
               <img
                   src={import.meta.env.BASE_URL + 'Logo_woBG.png'}
@@ -348,7 +348,7 @@ function App() {
             <section
               style={{
                 position: 'relative',
-                minHeight: '100vh',
+                minHeight: 'auto',
                 background: '#152025', // darker bg (alternating)
                 display: 'flex',
                 flexDirection: 'column',
@@ -356,7 +356,7 @@ function App() {
                 alignItems: 'center',
                 boxSizing: 'border-box',
                 borderBottom: '1px solid #2C3730',
-                padding: '80px 24px',
+                padding: 'clamp(48px, 8vh, 80px) 20px',
                 overflow: 'hidden'
               }}
             >
@@ -370,7 +370,7 @@ function App() {
                   background: '#1A292F', // lighter bg card (contrasting)
                   border: '1px solid #2C3730',
                   borderRadius: '16px',
-                  padding: 'clamp(20px, 4vw, 40px) clamp(24px, 5vw, 60px) clamp(36px, 6vw, 50px)',
+                  padding: 'clamp(20px, 4vw, 40px) clamp(20px, 5vw, 60px) clamp(24px, 5vw, 40px)',
                   margin: '0 auto',
                   maxWidth: '600px',
                   width: '100%',
@@ -462,15 +462,15 @@ function App() {
                 transition={{ delay: 0.3, duration: 0.8 }}
                 style={{
                   fontFamily: "'EB Garamond', serif",
-                  fontSize: 'clamp(16px, 2.5vw, 22px)',
+                  fontSize: 'clamp(15px, 2.2vw, 20px)',
                   color: '#c9942a',
                   maxWidth: '600px',
                   width: '100%',
                   textAlign: 'center',
-                  lineHeight: 1.6,
-                  margin: '40px auto 0',
+                  lineHeight: 1.5,
+                  margin: '28px auto 0',
                   fontStyle: 'italic',
-                  padding: '0 24px',
+                  padding: '0 16px',
                   boxSizing: 'border-box'
                 }}
               >
