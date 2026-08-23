@@ -2,7 +2,6 @@ import { useState, useEffect, useRef } from 'react'
 import { useScroll, useSpring, motion, AnimatePresence } from 'framer-motion'
 import EnvelopeIntro from './components/EnvelopeIntro'
 import CountdownSlide from './components/CountdownSlide'
-import StorySlide from './components/StorySlide'
 import EventSlide from './components/EventSlide'
 import GallerySlide from './components/GallerySlide'
 import RSVPSlide from './components/RSVPSlide'
@@ -18,8 +17,19 @@ import './App.css'
 function App() {
   const [stage, setStage] = useState(0) // 0: Envelope, 1: Ganesh, 2: Main Website
   const [isRsvpUnlocked, setIsRsvpUnlocked] = useState(false)
+  const [showScrollIndicator, setShowScrollIndicator] = useState(true)
   const { scrollYProgress } = useScroll()
   const scaleY = useSpring(scrollYProgress, { stiffness: 120, damping: 30 })
+
+  useEffect(() => {
+    return scrollYProgress.on('change', (latest) => {
+      if (latest > 0.97) {
+        setShowScrollIndicator(false)
+      } else {
+        setShowScrollIndicator(true)
+      }
+    })
+  }, [scrollYProgress])
 
   // Music player state
   const audioRef = useRef(null)
@@ -501,8 +511,6 @@ function App() {
 
             <InvitedBySlide />
 
-            <StorySlide />
-
           <FinalSlide />
 
           {/* ── Scroll progress indicator ── */}
@@ -557,45 +565,48 @@ function App() {
         </button>
       )}
       {/* Floating Scroll Indicator */}
-      {stage === 2 && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 0.7 }}
-          transition={{ delay: 1.5, duration: 0.8 }}
-          style={{
-            position: 'fixed',
-            bottom: '32px',
-            right: '24px',
-            zIndex: 999,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            gap: '8px',
-            pointerEvents: 'none'
-          }}
-        >
-          <span style={{
-            fontFamily: "'EB Garamond', serif",
-            fontSize: '10px',
-            letterSpacing: '2px',
-            color: '#c9942a',
-            textTransform: 'uppercase',
-            textAlign: 'center',
-            display: 'block'
-          }}>
-            SCROLL
-          </span>
+      <AnimatePresence>
+        {stage === 2 && showScrollIndicator && (
           <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ repeat: Infinity, duration: 1.5, ease: 'easeInOut' }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 0.7 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.4 }}
             style={{
-              width: '1px',
-              height: '35px',
-              background: 'linear-gradient(to bottom, #c9942a, transparent)'
+              position: 'fixed',
+              bottom: '32px',
+              right: '24px',
+              zIndex: 999,
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              gap: '8px',
+              pointerEvents: 'none'
             }}
-          />
-        </motion.div>
-      )}
+          >
+            <span style={{
+              fontFamily: "'EB Garamond', serif",
+              fontSize: '10px',
+              letterSpacing: '2px',
+              color: '#c9942a',
+              textTransform: 'uppercase',
+              textAlign: 'center',
+              display: 'block'
+            }}>
+              SCROLL
+            </span>
+            <motion.div
+              animate={{ y: [0, 8, 0] }}
+              transition={{ repeat: Infinity, duration: 1.5, ease: 'easeInOut' }}
+              style={{
+                width: '1px',
+                height: '35px',
+                background: 'linear-gradient(to bottom, #c9942a, transparent)'
+              }}
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
       </div>
     )}
   </>

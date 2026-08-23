@@ -14,7 +14,7 @@ export default function InvitedBySlide({
       style={{
         background: '#152025',
         borderBottom: '1px solid #2C3730',
-        padding: '60px 24px',
+        padding: '38px 24px',
         color: '#fdf8f0',
         width: '100%',
         boxSizing: 'border-box',
@@ -34,12 +34,12 @@ export default function InvitedBySlide({
           fontSize: 'clamp(18px, 3.2vw, 24px)',
           color: '#fdf8f0',
           lineHeight: 1.6,
-          margin: '0 auto 24px auto',
+          margin: '0 auto 16px auto',
           maxWidth: '650px',
           fontStyle: 'italic',
           opacity: 0.95
         }}>
-          Your presence is the greatest gift we could ask for. We look forward to seeing you there.
+          Your presence is the greatest gift we could ask for
         </p>
 
         {/* Invited By Subheading */}
@@ -47,7 +47,7 @@ export default function InvitedBySlide({
           fontFamily: "'Great Vibes', cursive",
           fontSize: 'clamp(42px, 8vw, 64px)',
           color: '#c9942a',
-          margin: '0 0 40px 0',
+          margin: '0 0 24px 0',
           fontWeight: 'normal'
         }}>
           Invited By
@@ -79,6 +79,19 @@ export default function InvitedBySlide({
             </div>
           </div>
         </div>
+
+        {/* Bottom Closing Text */}
+        <p style={{
+          fontFamily: "'EB Garamond', 'Cormorant Garamond', serif",
+          fontSize: 'clamp(18px, 3.2vw, 24px)',
+          color: '#fdf8f0',
+          lineHeight: 1.5,
+          margin: '24px auto 0 auto',
+          fontStyle: 'italic',
+          opacity: 0.95
+        }}>
+          We look forward to celebrating with you!
+        </p>
       </motion.div>
     </section>
   );
