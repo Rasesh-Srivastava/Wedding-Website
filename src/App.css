@@ -547,3 +547,116 @@ video::-webkit-media-controls-enclosure { display: none !important; }
     gap: 32px;
   }
 }
+
+/* ── Invited By Section Responsive Grid ── */
+.invited-by-grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* On Mobile: Bride on top (order: 1), Groom below (order: 2) */
+.bride-column {
+  order: 1;
+  width: 100%;
+  max-width: min(94vw, 420px);
+}
+
+.groom-column {
+  order: 2;
+  width: 100%;
+  max-width: min(94vw, 420px);
+}
+
+/* On Desktop: Groom on left (order: 1), Bride on right (order: 2) */
+@media (min-width: 768px) {
+  .invited-by-grid {
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+    gap: 32px;
+  }
+
+  .groom-column {
+    order: 1;
+    flex: 1;
+    max-width: 420px;
+  }
+
+  .bride-column {
+    order: 2;
+    flex: 1;
+    max-width: 420px;
+  }
+}
+
+.family-card {
+  background: linear-gradient(145deg, #1A292F 0%, #131E23 100%);
+  border: 1px solid rgba(201, 148, 42, 0.3);
+  border-radius: 20px;
+  padding: 32px clamp(12px, 3vw, 24px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.family-role-label {
+  font-family: 'Cinzel', serif;
+  font-size: 12px;
+  color: #c9942a;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.family-person-name {
+  font-family: 'Great Vibes', cursive;
+  font-size: clamp(26px, 4.5vw, 42px);
+  color: #fdf8f0;
+  margin: 0 0 16px 0;
+  font-weight: normal;
+  white-space: nowrap;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.family-card-divider {
+  width: 50px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #c9942a, transparent);
+  margin: 0 auto 20px auto;
+}
+
+.family-parents-label {
+  font-family: 'Cinzel', serif;
+  font-size: 11px;
+  color: #c9942a;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.family-parents-name {
+  font-family: 'EB Garamond', serif;
+  font-size: clamp(16px, 2.6vw, 20px);
+  color: #fdf8f0;
+  margin: 3px 0;
+  font-weight: 600;
+  line-height: 1.4;
+  white-space: nowrap;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+

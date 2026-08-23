@@ -12,6 +12,7 @@ import ShowcaseSlide from './components/ShowcaseSlide'
 import VenueSlide from './components/VenueSlide'
 import WeddingEvents from './components/WeddingEvents'
 import SaveTheDateSlide from './components/SaveTheDateSlide'
+import InvitedBySlide from './components/InvitedBySlide'
 import './App.css'
 
 function App() {
@@ -497,6 +498,8 @@ function App() {
             <SaveTheDateSlide />
 
             <RSVPSlide scriptUrl='https://script.google.com/macros/s/AKfycbzcbjb17SaZ-JEhKEi-iWEXzvq9HtfIfmICKD5mKfNo6JCmbSgu29kVjArIftPE6rPH/exec'/>
+
+            <InvitedBySlide />
 
             <StorySlide />
 
