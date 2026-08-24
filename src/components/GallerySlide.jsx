@@ -143,16 +143,22 @@ export default function GallerySlide() {
           <AnimatePresence>
             {((!isLit) || (isLit && isRopeHovered)) && (
               <motion.div
-                initial={{ opacity: 0, x: 8 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: 8 }}
-                transition={{ duration: 0.25 }}
+                initial={{ opacity: 0, x: -8 }}
+                animate={{
+                  opacity: 1,
+                  x: [0, 5, 0]
+                }}
+                exit={{ opacity: 0, x: -8 }}
+                transition={{
+                  opacity: { duration: 0.25 },
+                  x: { repeat: Infinity, duration: 1.2, ease: 'easeInOut' }
+                }}
                 style={{
                   position: 'absolute',
                   right: '100%',
                   top: '60%',
                   transform: 'translateY(-50%)',
-                  marginRight: '12px',
+                  marginRight: '3px',
                   background: 'rgba(21, 32, 37, 0.95)',
                   border: '1px solid #c9942a',
                   borderRadius: '8px',
