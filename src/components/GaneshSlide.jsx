@@ -15,24 +15,27 @@ export default function GaneshSlide({
   }, [onComplete]);
 
   return (
-    <section style={{
-      padding: '80px 24px',
-      background: '#152025',
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      justifyContent: 'center',
-      minHeight: '100vh',
-      boxSizing: 'border-box',
-      borderBottom: '1px solid #2C3730',
-      textAlign: 'center'
-    }}>
+    <section
+      className="ganesh-section"
+      style={{
+        padding: '80px 24px',
+        background: '#152025',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        minHeight: '100vh',
+        boxSizing: 'border-box',
+        borderBottom: '1px solid #2C3730',
+        textAlign: 'center'
+      }}
+    >
       <div
         style={{
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
-          gap: '48px',
+          gap: 'clamp(24px, 4vw, 48px)',
           width: '100%',
           maxWidth: 'min(90vw, 800px)'
         }}
