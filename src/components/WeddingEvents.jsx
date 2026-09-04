@@ -246,9 +246,9 @@ export default function WeddingEvents({ events = DEFAULT_EVENTS }) {
                       src={evt.caricature}
                       alt={`${evt.fancyName} Caricature`}
                       style={{
-                        width: 'clamp(60px, 14vw, 90px)',
+                        width: 'clamp(72px, 16.8vw, 108px)',
                         height: 'auto',
-                        maxHeight: '110px',
+                        maxHeight: '132px',
                         objectFit: 'contain',
                         filter: 'drop-shadow(0 8px 16px rgba(0,0,0,0.5))'
                       }}

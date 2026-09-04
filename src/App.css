@@ -660,3 +660,18 @@ video::-webkit-media-controls-enclosure { display: none !important; }
   text-overflow: ellipsis;
 }
 
+/* ── Overlaid Play Button Pulse Animation ── */
+@keyframes pulse-play-btn {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(0.5);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(0.45);
+  }
+}
+
+.pulsing-play-btn {
+  transform: translate(-50%, -50%) scale(0.5);
+  animation: pulse-play-btn 3.6s ease-in-out infinite;
+}
+

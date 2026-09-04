@@ -94,7 +94,7 @@ export default function ShowcaseSlide({
             </p>
             
             <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-              {/* Section 1: Parents */}
+              {/* 1. Dada & Dadi */}
               <div>
                 <p style={{
                   fontFamily: "'EB Garamond', serif",
@@ -107,44 +107,7 @@ export default function ShowcaseSlide({
                   opacity: 0.9,
                   textAlign: 'center'
                 }}>
-                  Parents
-                </p>
-                <p style={{
-                  fontFamily: "'EB Garamond', serif",
-                  fontSize: '14px',
-                  color: '#fdf8f0',
-                  margin: '0 0 2px 0',
-                  textAlign: 'center'
-                }}>
-                  Dr. Ashwani Johri
-                </p>
-                <p style={{
-                  fontFamily: "'EB Garamond', serif",
-                  fontSize: '14px',
-                  color: '#fdf8f0',
-                  margin: 0,
-                  textAlign: 'center'
-                }}>
-                  Dr. Surabhi Johri
-                </p>
-              </div>
-              
-              <div style={{ width: '40px', height: '1px', background: 'rgba(201, 148, 42, 0.2)', margin: '2px auto' }} />
-
-              {/* Section 2: Dada & Dadi */}
-              <div>
-                <p style={{
-                  fontFamily: "'EB Garamond', serif",
-                  fontSize: '11px',
-                  letterSpacing: '1.5px',
-                  color: '#c9942a',
-                  textTransform: 'uppercase',
-                  margin: '0 0 4px 0',
-                  fontWeight: 'bold',
-                  opacity: 0.9,
-                  textAlign: 'center'
-                }}>
-                  Dada & Dadi
+                  Dada &amp; Dadi
                 </p>
                 <p style={{
                   fontFamily: "'EB Garamond', serif",
@@ -168,7 +131,7 @@ export default function ShowcaseSlide({
 
               <div style={{ width: '40px', height: '1px', background: 'rgba(201, 148, 42, 0.2)', margin: '2px auto' }} />
 
-              {/* Section 3: Nana & Nani */}
+              {/* 2. Nana & Nani */}
               <div>
                 <p style={{
                   fontFamily: "'EB Garamond', serif",
@@ -181,7 +144,7 @@ export default function ShowcaseSlide({
                   opacity: 0.9,
                   textAlign: 'center'
                 }}>
-                  Nana & Nani
+                  Nana &amp; Nani
                 </p>
                 <p style={{
                   fontFamily: "'EB Garamond', serif",
@@ -200,6 +163,43 @@ export default function ShowcaseSlide({
                   textAlign: 'center'
                 }}>
                   Smt. Pratima Shrivastav
+                </p>
+              </div>
+
+              <div style={{ width: '40px', height: '1px', background: 'rgba(201, 148, 42, 0.2)', margin: '2px auto' }} />
+
+              {/* 3. PAPA & MUMMY (Renamed from Parents) */}
+              <div>
+                <p style={{
+                  fontFamily: "'EB Garamond', serif",
+                  fontSize: '11px',
+                  letterSpacing: '1.5px',
+                  color: '#c9942a',
+                  textTransform: 'uppercase',
+                  margin: '0 0 4px 0',
+                  fontWeight: 'bold',
+                  opacity: 0.9,
+                  textAlign: 'center'
+                }}>
+                  Papa &amp; Mummy
+                </p>
+                <p style={{
+                  fontFamily: "'EB Garamond', serif",
+                  fontSize: '14px',
+                  color: '#fdf8f0',
+                  margin: '0 0 2px 0',
+                  textAlign: 'center'
+                }}>
+                  Dr. Ashwani Johri
+                </p>
+                <p style={{
+                  fontFamily: "'EB Garamond', serif",
+                  fontSize: '14px',
+                  color: '#fdf8f0',
+                  margin: 0,
+                  textAlign: 'center'
+                }}>
+                  Dr. Surabhi Johri
                 </p>
               </div>
             </div>
@@ -260,7 +260,7 @@ export default function ShowcaseSlide({
             </p>
             
             <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-              {/* Section 1: Parents */}
+              {/* 1. Dada & Dadi */}
               <div>
                 <p style={{
                   fontFamily: "'EB Garamond', serif",
@@ -273,44 +273,7 @@ export default function ShowcaseSlide({
                   opacity: 0.9,
                   textAlign: 'center'
                 }}>
-                  Parents
-                </p>
-                <p style={{
-                  fontFamily: "'EB Garamond', serif",
-                  fontSize: '14px',
-                  color: '#fdf8f0',
-                  margin: '0 0 2px 0',
-                  textAlign: 'center'
-                }}>
-                  Dr. Sandesh Kumar Srivastava
-                </p>
-                <p style={{
-                  fontFamily: "'EB Garamond', serif",
-                  fontSize: '14px',
-                  color: '#fdf8f0',
-                  margin: 0,
-                  textAlign: 'center'
-                }}>
-                  Dr. Neeta Srivastava
-                </p>
-              </div>
-              
-              <div style={{ width: '40px', height: '1px', background: 'rgba(201, 148, 42, 0.2)', margin: '2px auto' }} />
-
-              {/* Section 2: Dada & Dadi */}
-              <div>
-                <p style={{
-                  fontFamily: "'EB Garamond', serif",
-                  fontSize: '11px',
-                  letterSpacing: '1.5px',
-                  color: '#c9942a',
-                  textTransform: 'uppercase',
-                  margin: '0 0 4px 0',
-                  fontWeight: 'bold',
-                  opacity: 0.9,
-                  textAlign: 'center'
-                }}>
-                  Dada & Dadi
+                  Dada &amp; Dadi
                 </p>
                 <p style={{
                   fontFamily: "'EB Garamond', serif",
@@ -334,7 +297,7 @@ export default function ShowcaseSlide({
 
               <div style={{ width: '40px', height: '1px', background: 'rgba(201, 148, 42, 0.2)', margin: '2px auto' }} />
 
-              {/* Section 3: Nana & Nani */}
+              {/* 2. Nana & Nani */}
               <div>
                 <p style={{
                   fontFamily: "'EB Garamond', serif",
@@ -347,7 +310,7 @@ export default function ShowcaseSlide({
                   opacity: 0.9,
                   textAlign: 'center'
                 }}>
-                  Nana & Nani
+                  Nana &amp; Nani
                 </p>
                 <p style={{
                   fontFamily: "'EB Garamond', serif",
@@ -366,6 +329,43 @@ export default function ShowcaseSlide({
                   textAlign: 'center'
                 }}>
                   Late Smt. Radha Rani
+                </p>
+              </div>
+
+              <div style={{ width: '40px', height: '1px', background: 'rgba(201, 148, 42, 0.2)', margin: '2px auto' }} />
+
+              {/* 3. PAPA & MUMMY (Renamed from Parents) */}
+              <div>
+                <p style={{
+                  fontFamily: "'EB Garamond', serif",
+                  fontSize: '11px',
+                  letterSpacing: '1.5px',
+                  color: '#c9942a',
+                  textTransform: 'uppercase',
+                  margin: '0 0 4px 0',
+                  fontWeight: 'bold',
+                  opacity: 0.9,
+                  textAlign: 'center'
+                }}>
+                  Papa &amp; Mummy
+                </p>
+                <p style={{
+                  fontFamily: "'EB Garamond', serif",
+                  fontSize: '14px',
+                  color: '#fdf8f0',
+                  margin: '0 0 2px 0',
+                  textAlign: 'center'
+                }}>
+                  Dr. Sandesh Kumar Srivastava
+                </p>
+                <p style={{
+                  fontFamily: "'EB Garamond', serif",
+                  fontSize: '14px',
+                  color: '#fdf8f0',
+                  margin: 0,
+                  textAlign: 'center'
+                }}>
+                  Dr. Neeta Srivastava
                 </p>
               </div>
             </div>

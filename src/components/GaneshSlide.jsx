@@ -1,19 +1,19 @@
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { fadeUp } from '../animations';
 
 export default function GaneshSlide({
   onComplete,
-  mantraDesktopOffsetY = '61px' // <-- Adjust this value (e.g. '20px', '35px', '50px') for trial and error on laptop view!
+  mantraDesktopOffsetY = '61px'
 }) {
   useEffect(() => {
     if (onComplete) {
       const timer = setTimeout(() => {
         onComplete();
-      }, 3000);
+      }, 4500); // Total 4.5 seconds duration
       return () => clearTimeout(timer);
     }
   }, [onComplete]);
+
   return (
     <section style={{
       padding: '80px 24px',
@@ -27,11 +27,7 @@ export default function GaneshSlide({
       borderBottom: '1px solid #2C3730',
       textAlign: 'center'
     }}>
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: '-50px' }}
-        variants={fadeUp}
+      <div
         style={{
           display: 'flex',
           flexDirection: 'column',
@@ -41,9 +37,13 @@ export default function GaneshSlide({
           maxWidth: 'min(90vw, 800px)'
         }}
       >
-        <img
+        {/* Step 1: Lord Ganesh Image (Drawn / Revealed Top-to-Bottom, starts immediately) */}
+        <motion.img
           src={import.meta.env.BASE_URL + "LordGanesh.png"}
           alt="Lord Ganesh"
+          initial={{ opacity: 0, clipPath: 'inset(0 0 100% 0)' }}
+          animate={{ opacity: 1, clipPath: 'inset(0 0 0% 0)' }}
+          transition={{ duration: 1.0, ease: 'easeInOut' }}
           style={{
             width: '100%',
             maxWidth: '320px',
@@ -62,9 +62,13 @@ export default function GaneshSlide({
           gap: '40px',
           width: '100%'
         }}>
-          <img
+          {/* Step 2: Shree Image ("Shree Ganeshay Namah" Written / Revealed Left-to-Right, delay 1.0s) */}
+          <motion.img
             src={import.meta.env.BASE_URL + "shree.png"}
             alt="Shree"
+            initial={{ opacity: 0, clipPath: 'inset(0 100% 0 0)' }}
+            animate={{ opacity: 1, clipPath: 'inset(0 0% 0 0)' }}
+            transition={{ delay: 1.0, duration: 1.2, ease: 'easeInOut' }}
             style={{
               width: '100%',
               maxWidth: '320px',
@@ -74,10 +78,14 @@ export default function GaneshSlide({
             }}
           />
 
-          <img
+          {/* Step 3: Mantra Image (Drawn / Revealed Top-to-Bottom, delay 2.0s = 1.0s after Shree) */}
+          <motion.img
             src={import.meta.env.BASE_URL + "mantra.png"}
             alt="Mantra"
             className="ganesh-mantra-img"
+            initial={{ opacity: 0, clipPath: 'inset(0 0 100% 0)' }}
+            animate={{ opacity: 1, clipPath: 'inset(0 0 0% 0)' }}
+            transition={{ delay: 2.0, duration: 1.0, ease: 'easeInOut' }}
             style={{
               '--mantra-desktop-y': mantraDesktopOffsetY,
               width: '100%',
@@ -88,7 +96,7 @@ export default function GaneshSlide({
             }}
           />
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 }

@@ -333,6 +333,7 @@ function App() {
               <button
                 ref={playBtnRef}
                 onClick={togglePlay}
+                className={isPlaying ? '' : 'pulsing-play-btn'}
                 style={{
                   position: 'fixed',
                   zIndex: 1000,

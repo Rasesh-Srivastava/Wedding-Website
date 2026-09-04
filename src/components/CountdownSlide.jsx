@@ -279,6 +279,7 @@ export default function CountdownSlide() {
             <p style={{
               fontFamily: "'Great Vibes', cursive",
               fontSize: 'clamp(32px, 8vw, 44px)',
+              letterSpacing: '1.2px',
               color: '#fdf8f0',
               margin: 0,
               lineHeight: 1.1
