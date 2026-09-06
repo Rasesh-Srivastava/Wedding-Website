@@ -468,7 +468,7 @@ function App() {
               </motion.div>
 
               {/* Invitation Message (poetic and gold-colored) */}
-              <motion.p
+              <motion.div
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 0.9 }}
                 viewport={{ once: true }}
@@ -480,15 +480,20 @@ function App() {
                   maxWidth: '600px',
                   width: '100%',
                   textAlign: 'center',
-                  lineHeight: 1.5,
+                  lineHeight: 1.6,
                   margin: '28px auto 0',
                   fontStyle: 'italic',
                   padding: '0 16px',
                   boxSizing: 'border-box'
                 }}
               >
-                "Two souls, one journey, woven by destiny. We request the joy of your presence as they begin their forever."
-              </motion.p>
+                <p style={{ margin: '0 0 4px 0', textAlign: 'center' }}>
+                  "Two souls, one journey, woven by destiny.
+                </p>
+                <p style={{ margin: 0, textAlign: 'center' }}>
+                  We request the joy of your presence as they begin their forever."
+                </p>
+              </motion.div>
             </section>
 
             <CountdownSlide />

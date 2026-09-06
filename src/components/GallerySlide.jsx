@@ -279,7 +279,7 @@ export default function GallerySlide() {
             margin: '0 0 8px',
             fontWeight: 'normal'
           }}>
-            Moments Together
+            Our Love Story
           </h2>
           <p style={{
             fontFamily: "'EB Garamond', serif",

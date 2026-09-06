@@ -40,8 +40,8 @@ export default function SaveTheDateSlide({
           flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
-          maxWidth: '650px',
-          width: '90%',
+          maxWidth: '98vw',
+          width: '98%',
           zIndex: 5,
           pointerEvents: isOpen ? 'auto' : 'none',
           boxSizing: 'border-box'
@@ -62,16 +62,21 @@ export default function SaveTheDateSlide({
             width: '100%'
           }}
         >
-          {/* Line 1: Save the Dates */}
+          {/* Line 1: Reminder Message */}
           <h2 style={{
             fontFamily: "'Great Vibes', cursive",
-            fontSize: 'clamp(44px, 9vw, 76px)',
+            fontSize: 'clamp(18px, 4.6vw, 56px)',
             color: '#c9942a',
-            margin: '0 0 16px 0',
+            margin: '0 auto 16px auto',
+            width: '100%',
+            maxWidth: '100%',
+            whiteSpace: 'nowrap',
+            lineHeight: 1.2,
             fontWeight: 'normal',
             textShadow: '0 4px 16px rgba(0,0,0,0.4)'
           }}>
-            Save the Dates
+            <span style={{ fontFamily: "'Pinyon Script', cursive", fontSize: '1.15em', marginRight: '1px', display: 'inline-block' }}>A</span>
+            &nbsp;little reminder to keep these dates free for us.
           </h2>
 
           {/* Decorative Gold Line */}
@@ -93,7 +98,7 @@ export default function SaveTheDateSlide({
             lineHeight: 1.3,
             textTransform: 'uppercase'
           }}>
-            Wednesday, December 2, 2026
+            Wednesday, December 2
           </p>
 
           {/* Line 3: and */}

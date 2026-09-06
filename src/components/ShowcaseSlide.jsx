@@ -38,7 +38,7 @@ export default function ShowcaseSlide({
           margin: 0,
           fontWeight: 'normal'
         }}>
-          The Happy Couple
+          Meet The Happy Couple
         </h2>
       </div>
 
@@ -55,10 +55,10 @@ export default function ShowcaseSlide({
           <div className="photo-wrapper">
             <img src={groomImgSrc} alt="Groom" />
           </div>
-          <h3 className="showcase-name">Ishank</h3>
+          <h3 className="showcase-name">Dr. Ishank</h3>
           <p className="showcase-title">The Groom</p>
           <p className="showcase-bio">
-            A gentleman with a heart of gold, carrying a beautiful dream of love. Ready to walk hand-in-hand towards a lifetime of happiness, laughter, and forever.
+            Hepatologist by profession who doesn't fight the tide - but flows with reality. Resilient, practical and calm, with a light sense of humor that keeps life grounded and joyful.
           </p>
 
           {/* Groom's Blessed by Elders Block */}
@@ -221,7 +221,7 @@ export default function ShowcaseSlide({
           <div className="photo-wrapper">
             <img src={brideImgSrc} alt="Bride" />
           </div>
-          <h3 className="showcase-name">Shivi</h3>
+          <h3 className="showcase-name">Dr. Shivi</h3>
           <p className="showcase-title">The Bride</p>
           <p className="showcase-bio">
             A vision of grace and beauty, ready to embark on a sweet adventure of love. Eager to write a story of tomorrow alongside her dream partner.

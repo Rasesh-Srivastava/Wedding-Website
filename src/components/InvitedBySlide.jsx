@@ -1,9 +1,6 @@
 import { motion } from 'framer-motion';
 
 export default function InvitedBySlide({
-  groomName = "Dr. Ishank Johri",
-  groomFather = "Dr. Ashwani Johri",
-  groomMother = "Dr. Surabhi Johri",
   brideName = "Dr. Shivi Srivastava",
   brideFather = "Dr. Sandesh Kumar Srivastava",
   brideMother = "Dr. Neeta Srivastava"
@@ -50,24 +47,11 @@ export default function InvitedBySlide({
           margin: '0 0 24px 0',
           fontWeight: 'normal'
         }}>
-          Invited By
+          Warm Regards
         </h2>
 
-        {/* 2 Columns Container */}
+        {/* Centered Bride Section */}
         <div className="invited-by-grid">
-          {/* Groom Section */}
-          <div className="groom-column">
-            <div className="family-card">
-              <span className="family-role-label">GROOM</span>
-              <h3 className="family-person-name">{groomName}</h3>
-              <div className="family-card-divider" />
-              <span className="family-parents-label">GROOM'S PARENTS</span>
-              <p className="family-parents-name">{groomFather}</p>
-              <p className="family-parents-name">{groomMother}</p>
-            </div>
-          </div>
-
-          {/* Bride Section */}
           <div className="bride-column">
             <div className="family-card">
               <span className="family-role-label">BRIDE</span>
@@ -90,7 +74,7 @@ export default function InvitedBySlide({
           fontStyle: 'italic',
           opacity: 0.95
         }}>
-          We look forward to celebrating with you!
+          Let's gather, celebrate and make memories together!
         </p>
       </motion.div>
     </section>

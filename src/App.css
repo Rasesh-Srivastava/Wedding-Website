@@ -559,37 +559,31 @@ video::-webkit-media-controls-enclosure { display: none !important; }
   margin: 0 auto;
 }
 
-/* On Mobile: Bride on top (order: 1), Groom below (order: 2) */
+/* ── Invited By Section Responsive Grid ── */
+.invited-by-grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
 .bride-column {
-  order: 1;
   width: 100%;
   max-width: min(94vw, 420px);
+  margin: 0 auto;
 }
 
-.groom-column {
-  order: 2;
-  width: 100%;
-  max-width: min(94vw, 420px);
-}
-
-/* On Desktop: Groom on left (order: 1), Bride on right (order: 2) */
 @media (min-width: 768px) {
   .invited-by-grid {
     flex-direction: row;
     justify-content: center;
-    align-items: stretch;
-    gap: 32px;
-  }
-
-  .groom-column {
-    order: 1;
-    flex: 1;
-    max-width: 420px;
   }
 
   .bride-column {
-    order: 2;
-    flex: 1;
     max-width: 420px;
   }
 }
@@ -663,16 +657,16 @@ video::-webkit-media-controls-enclosure { display: none !important; }
 /* ── Overlaid Play Button Pulse Animation ── */
 @keyframes pulse-play-btn {
   0%, 100% {
-    transform: translate(-50%, -50%) scale(0.5);
+    transform: translate(-50%, -50%) scale(0.45);
   }
   50% {
-    transform: translate(-50%, -50%) scale(0.45);
+    transform: translate(-50%, -50%) scale(0.525);
   }
 }
 
 .pulsing-play-btn {
-  transform: translate(-50%, -50%) scale(0.5);
-  animation: pulse-play-btn 3.6s ease-in-out infinite;
+  transform: translate(-50%, -50%) scale(0.45);
+  animation: pulse-play-btn 3.27s ease-in-out infinite;
 }
 
 /* ── Ganesh Slide Mobile Sizing & Alignment ── */
