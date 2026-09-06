@@ -8,7 +8,8 @@ export default function RSVPSlide({
     name: '',
     attending: '', // Default 'Please select'
     guests: '',
-    attendeeNames: ''
+    attendeeNames: '',
+    accommodation: '' // Default '' (blank, requires selection on 'Yes, I'll be there')
   });
 
   const [errorMessage, setErrorMessage] = useState('');
@@ -53,8 +54,9 @@ export default function RSVPSlide({
 
     let payloadGuests = "0";
     let payloadAttendeeNames = "N/A";
+    let payloadAccommodation = "N/A";
 
-    // Validation Check 3: If attending, number of guests & attendee names
+    // Validation Check 3: If attending, check guests, attendee names & accommodation choice
     if (formData.attending === "Yes, I'll be there") {
       const guestNum = parseInt(formData.guests.trim(), 10);
       if (isNaN(guestNum) || guestNum <= 0) {
@@ -68,8 +70,14 @@ export default function RSVPSlide({
         return;
       }
 
+      if (!formData.accommodation) {
+        showError("Please select whether you require accommodation (Yes or No).");
+        return;
+      }
+
       payloadGuests = guestNum.toString();
       payloadAttendeeNames = trimmedAttendeeNames;
+      payloadAccommodation = formData.accommodation;
     }
 
     // Clear error message when validation passes
@@ -82,7 +90,8 @@ export default function RSVPSlide({
       name: trimmedName,
       attending: formData.attending,
       guests: payloadGuests,
-      attendeeNames: payloadAttendeeNames
+      attendeeNames: payloadAttendeeNames,
+      accommodation: payloadAccommodation
     };
 
     try {
@@ -235,7 +244,7 @@ export default function RSVPSlide({
                 </div>
               </div>
 
-              {/* Conditional Row 2: Guests & Names of People Attending */}
+              {/* Conditional Row 2 & 3: Guests, Names of People Attending, & Accommodation? */}
               <AnimatePresence>
                 {formData.attending === "Yes, I'll be there" && (
                   <motion.div
@@ -317,103 +326,176 @@ export default function RSVPSlide({
                           }}
                         />
                       </div>
+
+                      {/* Field 5: Accommodation Grid Container (Spans full width, 2 cols on laptop, 1 col on mobile) */}
+                      <div style={{
+                        gridColumn: '1 / -1',
+                        display: 'grid',
+                        gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
+                        gap: '8px 20px',
+                        alignItems: 'center'
+                      }}>
+                        {/* Label */}
+                        <div style={{ display: 'flex', flexDirection: 'column', textAlign: 'left' }}>
+                          <label style={{
+                            fontFamily: "'EB Garamond', serif",
+                            fontSize: '11px',
+                            color: '#c9942a',
+                            letterSpacing: '2px',
+                            textTransform: 'uppercase',
+                            fontWeight: 'bold',
+                            margin: 0
+                          }}>
+                            ACCOMMODATION?
+                          </label>
+                        </div>
+
+                        {/* Yes / No Box */}
+                        <div style={{ display: 'flex', flexDirection: 'column', textAlign: 'left' }}>
+                          <div style={{
+                            background: '#1A292F',
+                            border: '1px solid rgba(201, 148, 42, 0.35)',
+                            borderRadius: '12px',
+                            padding: '12px 24px',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'space-between',
+                            boxSizing: 'border-box',
+                            width: '100%',
+                            minHeight: '48px'
+                          }}>
+                            <label style={{
+                              display: 'flex',
+                              alignItems: 'center',
+                              gap: '8px',
+                              cursor: 'pointer',
+                              fontFamily: "'EB Garamond', serif",
+                              fontSize: '16px',
+                              color: '#fdf8f0',
+                              userSelect: 'none'
+                            }}>
+                              <input
+                                type="checkbox"
+                                name="accommodation"
+                                value="Yes"
+                                checked={formData.accommodation === 'Yes'}
+                                onChange={() => setFormData({ ...formData, accommodation: formData.accommodation === 'Yes' ? '' : 'Yes' })}
+                                style={{
+                                  accentColor: '#c9942a',
+                                  width: '18px',
+                                  height: '18px',
+                                  cursor: 'pointer'
+                                }}
+                              />
+                              Yes
+                            </label>
+
+                            <label style={{
+                              display: 'flex',
+                              alignItems: 'center',
+                              gap: '8px',
+                              cursor: 'pointer',
+                              fontFamily: "'EB Garamond', serif",
+                              fontSize: '16px',
+                              color: '#fdf8f0',
+                              userSelect: 'none'
+                            }}>
+                              <input
+                                type="checkbox"
+                                name="accommodation"
+                                value="No"
+                                checked={formData.accommodation === 'No'}
+                                onChange={() => setFormData({ ...formData, accommodation: formData.accommodation === 'No' ? '' : 'No' })}
+                                style={{
+                                  accentColor: '#c9942a',
+                                  width: '18px',
+                                  height: '18px',
+                                  cursor: 'pointer'
+                                }}
+                              />
+                              No
+                            </label>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </motion.div>
                 )}
               </AnimatePresence>
 
               {/* Submit Button */}
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.97 }}
-                type="submit"
-                disabled={status === 'submitting'}
-                style={{
-                  marginTop: '12px',
-                  background: 'linear-gradient(135deg, #dfa943 0%, #c9942a 100%)',
-                  color: '#152025',
-                  border: 'none',
-                  padding: '16px 28px',
-                  fontFamily: "'EB Garamond', serif",
-                  fontSize: '14px',
-                  fontWeight: 'bold',
-                  letterSpacing: '2px',
-                  textTransform: 'uppercase',
-                  borderRadius: '30px',
-                  cursor: 'pointer',
-                  boxShadow: '0 4px 20px rgba(201, 148, 42, 0.35)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  gap: '10px'
-                }}
-              >
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-                  <line x1="22" y1="2" x2="11" y2="13"/>
-                  <polygon points="22 2 15 22 11 13 2 9 22 2"/>
-                </svg>
-                {status === 'submitting' ? 'SENDING...' : 'SEND RSVP'}
-              </motion.button>
+              <div style={{ marginTop: '12px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '12px' }}>
+                <button
+                  type="submit"
+                  disabled={status === 'submitting'}
+                  style={{
+                    background: 'linear-gradient(135deg, #dfa943 0%, #c9942a 100%)',
+                    color: '#152025',
+                    border: 'none',
+                    padding: '14px 44px',
+                    fontFamily: "'EB Garamond', serif",
+                    textTransform: 'uppercase',
+                    letterSpacing: '2px',
+                    fontSize: '14px',
+                    fontWeight: 'bold',
+                    borderRadius: '30px',
+                    cursor: status === 'submitting' ? 'not-allowed' : 'pointer',
+                    boxShadow: '0 4px 16px rgba(201, 148, 42, 0.3)',
+                    transition: 'transform 0.2s, opacity 0.2s',
+                    opacity: status === 'submitting' ? 0.7 : 1
+                  }}
+                >
+                  {status === 'submitting' ? 'Sending RSVP...' : 'Send RSVP'}
+                </button>
 
-              {/* Validation Error Message directly below Send RSVP Button (Red, 10s auto-dismiss) */}
-              <AnimatePresence>
-                {errorMessage && (
-                  <motion.p
-                    initial={{ opacity: 0, y: -6 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -6 }}
-                    transition={{ duration: 0.3 }}
-                    style={{
-                      color: '#ff4d4f',
-                      fontFamily: "'EB Garamond', serif",
-                      fontSize: '14px',
-                      fontWeight: 'bold',
-                      letterSpacing: '0.5px',
-                      textAlign: 'center',
-                      margin: '4px 0 0 0'
-                    }}
-                  >
-                    {errorMessage}
-                  </motion.p>
-                )}
-              </AnimatePresence>
+                {/* Validation Error Message (Polite Red Text below button) */}
+                <AnimatePresence>
+                  {errorMessage && (
+                    <motion.p
+                      initial={{ opacity: 0, y: -6 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -6 }}
+                      transition={{ duration: 0.3 }}
+                      style={{
+                        fontFamily: "'EB Garamond', serif",
+                        fontSize: '14px',
+                        color: '#ff4d4f',
+                        margin: 0,
+                        textAlign: 'center',
+                        fontWeight: '600',
+                        lineHeight: 1.4
+                      }}
+                    >
+                      {errorMessage}
+                    </motion.p>
+                  )}
+                </AnimatePresence>
+              </div>
             </form>
           </motion.div>
         ) : (
-          /* Confirmation Success Card */
+          /* Success State */
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
+            initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             style={{
               background: 'linear-gradient(145deg, #152025 0%, #0e161a 100%)',
-              border: '1px solid rgba(201, 148, 42, 0.5)',
+              border: '1px solid rgba(201, 148, 42, 0.4)',
               borderRadius: '24px',
               padding: '48px 32px',
               textAlign: 'center',
               boxShadow: '0 12px 40px rgba(0,0,0,0.5)'
             }}
           >
-            <div style={{
-              width: '64px',
-              height: '64px',
-              borderRadius: '50%',
-              background: 'rgba(201, 148, 42, 0.15)',
-              border: '2px solid #c9942a',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              margin: '0 auto 20px auto',
-              color: '#c9942a'
-            }}>
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <polyline points="20 6 9 17 4 12"/>
-              </svg>
+            <div style={{ fontSize: '48px', color: '#c9942a', marginBottom: '16px' }}>
+              ✓
             </div>
             <h3 style={{
               fontFamily: "'Pinyon Script', cursive",
-              fontSize: 'clamp(36px, 7vw, 48px)',
+              fontSize: '44px',
               color: '#c9942a',
-              margin: '0 0 12px 0'
+              margin: '0 0 12px 0',
+              fontWeight: 'normal'
             }}>
               Thank You!
             </h3>
@@ -421,8 +503,8 @@ export default function RSVPSlide({
               fontFamily: "'EB Garamond', serif",
               fontSize: '18px',
               color: '#fdf8f0',
-              lineHeight: 1.5,
-              margin: 0
+              margin: 0,
+              lineHeight: 1.6
             }}>
               Your RSVP response has been received.
             </p>
