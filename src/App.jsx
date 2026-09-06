@@ -477,7 +477,7 @@ function App() {
                   fontFamily: "'EB Garamond', serif",
                   fontSize: 'clamp(15px, 2.2vw, 20px)',
                   color: '#c9942a',
-                  maxWidth: '600px',
+                  maxWidth: 'min(94vw, 850px)',
                   width: '100%',
                   textAlign: 'center',
                   lineHeight: 1.6,
@@ -488,10 +488,10 @@ function App() {
                 }}
               >
                 <p style={{ margin: '0 0 4px 0', textAlign: 'center' }}>
-                  "Two souls, one journey, woven by destiny.
+                  "Two souls, one journey; woven by destiny."
                 </p>
                 <p style={{ margin: 0, textAlign: 'center' }}>
-                  We request the joy of your presence as they begin their forever."
+                  We warmly request the pleasure of your presence as they begin their forever.
                 </p>
               </motion.div>
             </section>

@@ -140,7 +140,7 @@ export default function RSVPSlide({
               margin: '0 0 4px 0',
               fontWeight: 'normal'
             }}>
-              Will you be Attending?
+              Will you join us?
             </h2>
 
             {/* Subtitle */}

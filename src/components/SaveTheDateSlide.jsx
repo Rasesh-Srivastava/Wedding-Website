@@ -65,7 +65,7 @@ export default function SaveTheDateSlide({
           {/* Line 1: Reminder Message */}
           <h2 style={{
             fontFamily: "'Great Vibes', cursive",
-            fontSize: 'clamp(18px, 4.6vw, 56px)',
+            fontSize: 'clamp(23px, 4.6vw, 56px)',
             color: '#c9942a',
             margin: '0 auto 16px auto',
             width: '100%',
