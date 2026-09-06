@@ -388,7 +388,7 @@ video::-webkit-media-controls-enclosure { display: none !important; }
   margin: 0 auto;
   max-width: 380px;
   width: 100%;
-  text-align: left !important;
+  text-align: center;
   box-sizing: border-box;
 }
 
@@ -436,6 +436,10 @@ video::-webkit-media-controls-enclosure { display: none !important; }
     justify-content: flex-end;
   }
 
+  .event-row.left-event .event-description {
+    text-align: right;
+  }
+
   .event-row.right-event .event-card {
     width: calc(50% - 44px);
     max-width: 440px;
@@ -445,6 +449,10 @@ video::-webkit-media-controls-enclosure { display: none !important; }
 
   .event-row.right-event .event-details-row {
     justify-content: flex-start;
+  }
+
+  .event-row.right-event .event-description {
+    text-align: left;
   }
 
   /* Desktop Marker & Connector */

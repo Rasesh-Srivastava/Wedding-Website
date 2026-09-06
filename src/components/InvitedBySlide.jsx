@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import DiwaliFireworksCanvas from './DiwaliFireworksCanvas';
 
 export default function InvitedBySlide({
   brideName = "Dr. Shivi Srivastava",
@@ -9,21 +10,32 @@ export default function InvitedBySlide({
     <section
       className="invited-by-section"
       style={{
+        position: 'relative',
         background: '#152025',
         borderBottom: '1px solid #2C3730',
         padding: '38px 24px',
         color: '#fdf8f0',
         width: '100%',
         boxSizing: 'border-box',
-        textAlign: 'center'
+        textAlign: 'center',
+        overflow: 'hidden'
       }}
     >
+      {/* Background Diwali Fireworks & Sparkles Canvas */}
+      <DiwaliFireworksCanvas />
+
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
-        style={{ maxWidth: '850px', margin: '0 auto', width: '100%' }}
+        style={{
+          position: 'relative',
+          zIndex: 1,
+          maxWidth: '850px',
+          margin: '0 auto',
+          width: '100%'
+        }}
       >
         {/* Top Invitation Text */}
         <p style={{
@@ -45,7 +57,8 @@ export default function InvitedBySlide({
           fontSize: 'clamp(42px, 8vw, 64px)',
           color: '#c9942a',
           margin: '0 0 24px 0',
-          fontWeight: 'normal'
+          fontWeight: 'normal',
+          textShadow: '0 0 16px rgba(201, 148, 42, 0.4)'
         }}>
           Warm Regards
         </h2>
