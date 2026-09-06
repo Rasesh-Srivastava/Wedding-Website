@@ -222,39 +222,42 @@ export default function WeddingEvents({ events = DEFAULT_EVENTS }) {
       </motion.div>
 
       {/* Events Timeline Container */}
-      <div className="events-timeline-wrapper">
-        {/* Central Vertical Line - Desktop Only */}
-        <div className="events-center-line" />
+      <div className={`events-timeline-wrapper ${events.length === 1 ? 'single-event-wrapper' : ''}`}>
+        {/* Central Vertical Line - Desktop Only (hidden if single event) */}
+        {events.length > 1 && <div className="events-center-line" />}
 
         {/* Map over Events */}
         {events.map((evt, index) => {
-          const isLeft = index % 2 === 0;
+          const isSingle = events.length === 1;
+          const isLeft = isSingle ? true : index % 2 === 0;
           return (
             <div
               key={evt.id || index}
-              className={`event-row ${isLeft ? 'left-event' : 'right-event'}`}
+              className={`event-row ${isSingle ? 'single-event-row' : (isLeft ? 'left-event' : 'right-event')}`}
             >
               {/* Connector Line (Desktop Only) */}
-              <div className="event-connector" />
+              {!isSingle && <div className="event-connector" />}
 
               {/* Central Marker (Desktop Only) */}
-              <div className="event-marker-desktop">
-                {typeof evt.icon === 'string' && (evt.icon.includes('.') || evt.icon.startsWith('/') || evt.icon.startsWith('http')) ? (
-                  <img
-                    src={evt.icon}
-                    alt={evt.fancyName}
-                    style={{ width: '22px', height: '22px', objectFit: 'contain' }}
-                  />
-                ) : typeof evt.icon === 'string' ? (
-                  <span>{evt.icon}</span>
-                ) : (
-                  evt.icon || <span>✦</span>
-                )}
-              </div>
+              {!isSingle && (
+                <div className="event-marker-desktop">
+                  {typeof evt.icon === 'string' && (evt.icon.includes('.') || evt.icon.startsWith('/') || evt.icon.startsWith('http')) ? (
+                    <img
+                      src={evt.icon}
+                      alt={evt.fancyName}
+                      style={{ width: '22px', height: '22px', objectFit: 'contain' }}
+                    />
+                  ) : typeof evt.icon === 'string' ? (
+                    <span>{evt.icon}</span>
+                  ) : (
+                    evt.icon || <span>✦</span>
+                  )}
+                </div>
+              )}
 
               {/* Event Card Component */}
               <motion.div
-                initial={{ opacity: 0, y: 25, x: isLeft ? -25 : 25 }}
+                initial={{ opacity: 0, y: 25, x: isSingle ? 0 : (isLeft ? -25 : 25) }}
                 whileInView={{ opacity: 1, y: 0, x: 0 }}
                 viewport={{ once: true, margin: '-40px' }}
                 transition={{ duration: 0.7, delay: index * 0.1 }}

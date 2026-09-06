@@ -461,6 +461,29 @@ video::-webkit-media-controls-enclosure { display: none !important; }
     padding-top: var(--desktop-padding-top, 0px);
   }
 
+  /* Single Event Layout (Desktop) */
+  .event-row.single-event-row {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .event-row.single-event-row .event-card {
+    width: 100%;
+    max-width: 580px;
+    text-align: center;
+    align-items: center;
+    padding-left: clamp(20px, 4vw, 36px);
+    padding-right: clamp(20px, 4vw, 36px);
+  }
+
+  .event-row.single-event-row .event-details-row {
+    justify-content: center;
+  }
+
+  .event-row.single-event-row .event-description {
+    text-align: center;
+  }
+
   .event-caricature-wrapper.caricature-right {
     top: -46px !important;
     right: -16px !important;
