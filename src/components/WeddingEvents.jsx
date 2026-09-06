@@ -166,19 +166,6 @@ export const DEFAULT_EVENTS = [
     icon: import.meta.env.BASE_URL + 'fire.png',
     caricature: import.meta.env.BASE_URL + 'CARICATURE 3.png',
     fancyNamePaddingTop: '0px'
-  },
-  {
-    id: 'reception',
-    date: 'DEC 7, 2026',
-    fancyName: 'Twirl into Togetherness',
-    actualName: 'Aashirwad',
-    time: '7:00 PM Onwards',
-    venue: 'Banquet Hall',
-    dressCode: 'Traditional Royal Attire',
-    description: 'Where two souls unite in sacred Pheras and eternal love.',
-    icon: import.meta.env.BASE_URL + 'ring.png',
-    caricature: import.meta.env.BASE_URL + 'CARICATURE 4.png',
-    fancyNamePaddingTop: '6px'
   }
 ];
 
@@ -212,7 +199,7 @@ export default function WeddingEvents({ events = DEFAULT_EVENTS }) {
       >
         <h2 style={{
           fontFamily: "'Great Vibes', cursive",
-          fontSize: 'clamp(44px, 9vw, 72px)',
+          fontSize: 'clamp(48px, 10vw, 76px)',
           color: '#c9942a',
           margin: 0,
           fontWeight: 'normal'
