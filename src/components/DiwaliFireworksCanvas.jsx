@@ -133,7 +133,7 @@ export default function DiwaliFireworksCanvas() {
     const createFireworkBurst = () => {
       const x = Math.random() * (width * 0.8) + width * 0.1;
       const y = Math.random() * (height * 0.6) + height * 0.15;
-      const particleCount = 18; // Exactly 18 particles per burst
+      const particleCount = Math.floor(Math.random() * 11) + 20; // Random 20 to 30 particles per burst
       const burstColor = diwaliColors[Math.floor(Math.random() * diwaliColors.length)];
 
       for (let i = 0; i < particleCount; i++) {
@@ -141,8 +141,8 @@ export default function DiwaliFireworksCanvas() {
       }
 
       // Hard cap max active particles to prevent any build-up
-      if (particles.length > 45) {
-        particles.splice(0, particles.length - 45);
+      if (particles.length > 60) {
+        particles.splice(0, particles.length - 60);
       }
     };
 
