@@ -430,6 +430,7 @@ video::-webkit-media-controls-enclosure { display: none !important; }
     max-width: 440px;
     text-align: right;
     align-items: flex-end;
+    padding-left: 16px;
   }
 
   .event-row.left-event .event-details-row {
@@ -445,6 +446,7 @@ video::-webkit-media-controls-enclosure { display: none !important; }
     max-width: 440px;
     text-align: left;
     align-items: flex-start;
+    padding-right: 16px;
   }
 
   .event-row.right-event .event-details-row {
@@ -453,6 +455,20 @@ video::-webkit-media-controls-enclosure { display: none !important; }
 
   .event-row.right-event .event-description {
     text-align: left;
+  }
+
+  .event-fancy-name {
+    padding-top: var(--desktop-padding-top, 0px);
+  }
+
+  .event-caricature-wrapper.caricature-right {
+    top: -46px !important;
+    right: -16px !important;
+  }
+
+  .event-caricature-wrapper.caricature-left {
+    top: -46px !important;
+    left: -16px !important;
   }
 
   /* Desktop Marker & Connector */

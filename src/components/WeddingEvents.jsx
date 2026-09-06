@@ -112,7 +112,8 @@ export const DEFAULT_EVENTS = [
     dressCode: 'Green & Floral Festive',
     description: 'A sacred morning of henna, music and auspicious blessings.',
     icon: import.meta.env.BASE_URL + 'leaf.png',
-    caricature: import.meta.env.BASE_URL + 'CARICATURE 5.png'
+    caricature: import.meta.env.BASE_URL + 'CARICATURE 5.png',
+    fancyNamePaddingTop: '0px'
   },
   {
     id: 'sangeet',
@@ -124,7 +125,8 @@ export const DEFAULT_EVENTS = [
     dressCode: 'Glamorous Evening Wear',
     description: 'Dance, sing, and celebrate the union of two families under the stars.',
     icon: import.meta.env.BASE_URL + 'music.png',
-    caricature: import.meta.env.BASE_URL + 'CARICATURE 2.png'
+    caricature: import.meta.env.BASE_URL + 'CARICATURE 2.png',
+    fancyNamePaddingTop: '0px'
   },
   {
     id: 'haldi',
@@ -136,7 +138,8 @@ export const DEFAULT_EVENTS = [
     dressCode: 'Shades of Yellow',
     description: 'A morning of auspicious turmeric, laughter, and joyful celebrations.',
     icon: import.meta.env.BASE_URL + 'star.png',
-    caricature: import.meta.env.BASE_URL + 'CARICATURE 6.png'
+    caricature: import.meta.env.BASE_URL + 'CARICATURE 6.png',
+    fancyNamePaddingTop: '0px'
   },
   {
     id: 'wedding',
@@ -148,7 +151,8 @@ export const DEFAULT_EVENTS = [
     dressCode: 'Traditional Royal Attire',
     description: 'Where two souls unite in sacred Pheras and eternal love.',
     icon: import.meta.env.BASE_URL + 'garland.png',
-    caricature: import.meta.env.BASE_URL + 'CARICATURE 1.png'
+    caricature: import.meta.env.BASE_URL + 'CARICATURE 1.png',
+    fancyNamePaddingTop: '0px'
   },
   {
     id: 'phere',
@@ -160,7 +164,8 @@ export const DEFAULT_EVENTS = [
     dressCode: 'Traditional Royal Attire',
     description: 'Where two souls unite in sacred Pheras and eternal love.',
     icon: import.meta.env.BASE_URL + 'fire.png',
-    caricature: import.meta.env.BASE_URL + 'CARICATURE 3.png'
+    caricature: import.meta.env.BASE_URL + 'CARICATURE 3.png',
+    fancyNamePaddingTop: '0px'
   },
   {
     id: 'reception',
@@ -172,7 +177,8 @@ export const DEFAULT_EVENTS = [
     dressCode: 'Traditional Royal Attire',
     description: 'Where two souls unite in sacred Pheras and eternal love.',
     icon: import.meta.env.BASE_URL + 'ring.png',
-    caricature: import.meta.env.BASE_URL + 'CARICATURE 4.png'
+    caricature: import.meta.env.BASE_URL + 'CARICATURE 4.png',
+    fancyNamePaddingTop: '6px'
   }
 ];
 
@@ -260,7 +266,7 @@ export default function WeddingEvents({ events = DEFAULT_EVENTS }) {
                     className={`event-caricature-wrapper ${isLeft ? 'caricature-left' : 'caricature-right'}`}
                     style={{
                       position: 'absolute',
-                      top: 'clamp(-36px, -6vw, -24px)',
+                      top: 'clamp(-40px, -9vw, -30px)',
                       [isLeft ? 'left' : 'right']: 'clamp(-12px, -2vw, -6px)',
                       zIndex: 10,
                       pointerEvents: 'none'
@@ -270,11 +276,13 @@ export default function WeddingEvents({ events = DEFAULT_EVENTS }) {
                       src={evt.caricature}
                       alt={`${evt.fancyName} Caricature`}
                       style={{
-                        width: 'clamp(72px, 16.8vw, 108px)',
-                        height: 'auto',
-                        maxHeight: '132px',
+                        height: 'clamp(98px, 22.8vw, 146px)',
+                        width: 'auto',
+                        maxWidth: 'clamp(95px, 21vw, 138px)',
                         objectFit: 'contain',
-                        filter: 'drop-shadow(0 8px 16px rgba(0,0,0,0.5))'
+                        objectPosition: 'bottom center',
+                        filter: 'drop-shadow(0 8px 16px rgba(0,0,0,0.5))',
+                        display: 'block'
                       }}
                     />
                   </div>
@@ -287,7 +295,10 @@ export default function WeddingEvents({ events = DEFAULT_EVENTS }) {
                 {/* Fancy Event Name (using 'Great Vibes', cursive) */}
                 <h3
                   className="event-fancy-name"
-                  style={evt.headingColor ? { color: evt.headingColor } : {}}
+                  style={{
+                    ...(evt.headingColor ? { color: evt.headingColor } : {}),
+                    '--desktop-padding-top': evt.fancyNamePaddingTop || '0px'
+                  }}
                 >
                   {evt.fancyName}
                 </h3>
