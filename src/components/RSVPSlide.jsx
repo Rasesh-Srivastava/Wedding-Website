@@ -309,7 +309,7 @@ export default function RSVPSlide({
                         <input
                           type="text"
                           name="attendeeNames"
-                          placeholder="e.g. Rahul & Priya"
+                          placeholder="e.g. Tina, Rahul, Anjali"
                           value={formData.attendeeNames}
                           onChange={handleChange}
                           style={{
