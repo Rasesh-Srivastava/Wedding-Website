@@ -145,27 +145,44 @@ function App() {
                  paddingBottom: '48px'
                }}
              >
-              {/* Top — Logo */}
-              <motion.div
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3, duration: 0.8 }}
-                style={{ padding: '20px 24px 0', textAlign: 'center' }}
-              >
-              <img
-                  src={import.meta.env.BASE_URL + 'Logo_woBG.png'}
-                  alt="S&I Logo"
-                  style={{
-                    width: 'min(360px, 85vw)', /* 3x size on desktop (360px), safely scales down to 85% width on mobile */
-                    maxWidth: '100%',
-                    height: 'auto',
-                    objectFit: 'contain',
-                    margin: '0 auto',
-                    display: 'block',
-                    filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.2))'
-                  }}
-                />
-              </motion.div>
+              {/* Header Container: Logo (Left on Laptop) & Couple Photo (Right on Laptop / Below Logo on Mobile) */}
+              <div className="hero-header-container">
+                {/* Logo */}
+                <motion.div
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3, duration: 0.8 }}
+                  className="hero-logo-wrapper"
+                >
+                  <img
+                    src={import.meta.env.BASE_URL + 'Logo_woBG.png'}
+                    alt="S&I Logo"
+                    style={{
+                      width: 'min(360px, 85vw)',
+                      maxWidth: '100%',
+                      height: 'auto',
+                      objectFit: 'contain',
+                      margin: '0 auto',
+                      display: 'block',
+                      filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.2))'
+                    }}
+                  />
+                </motion.div>
+
+                {/* Couple Photo */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.4, duration: 0.8 }}
+                  className="hero-photo-wrapper"
+                >
+                  <img
+                    src={import.meta.env.BASE_URL + 'firstPageCouplePhoto.jpeg'}
+                    alt="Shivi & Ishank"
+                    className="hero-couple-photo"
+                  />
+                </motion.div>
+              </div>
 
               {/* Music Player Container */}
               <div className="music-container">
