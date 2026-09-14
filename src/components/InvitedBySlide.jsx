@@ -2,9 +2,10 @@ import { motion } from 'framer-motion';
 import DiwaliFireworksCanvas from './DiwaliFireworksCanvas';
 
 export default function InvitedBySlide({
-  brideName = "Dr. Shivi Srivastava",
-  brideFather = "Dr. Sandesh Kumar Srivastava",
-  brideMother = "Dr. Neeta Srivastava"
+  grandMother = "Smt. Rajkumari",
+  fatherName = "Dr. Sandesh Srivastava",
+  motherName = "Dr. Neeta Srivastava",
+  familyText = "And the entire Srivastava family, friends and relatives"
 }) {
   return (
     <section
@@ -63,16 +64,14 @@ export default function InvitedBySlide({
           Warm Regards
         </h2>
 
-        {/* Centered Bride Section */}
+        {/* Centered Family Card */}
         <div className="invited-by-grid">
           <div className="bride-column">
             <div className="family-card">
-              <span className="family-role-label">BRIDE</span>
-              <h3 className="family-person-name">{brideName}</h3>
-              <div className="family-card-divider" />
-              <span className="family-parents-label">BRIDE'S PARENTS</span>
-              <p className="family-parents-name">{brideFather}</p>
-              <p className="family-parents-name">{brideMother}</p>
+              <p className="family-parents-name">{grandMother}</p>
+              <p className="family-parents-name">{fatherName}</p>
+              <p className="family-parents-name">{motherName}</p>
+              <p className="family-parents-name">{familyText}</p>
             </div>
           </div>
         </div>

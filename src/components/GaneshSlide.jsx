@@ -1,15 +1,12 @@
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 
-export default function GaneshSlide({
-  onComplete,
-  mantraDesktopOffsetY = '61px'
-}) {
+export default function GaneshSlide({ onComplete }) {
   useEffect(() => {
     if (onComplete) {
       const timer = setTimeout(() => {
         onComplete();
-      }, 4500); // Total 4.5 seconds duration
+      }, 5000); // 5.0 seconds total duration
       return () => clearTimeout(timer);
     }
   }, [onComplete]);
@@ -18,7 +15,7 @@ export default function GaneshSlide({
     <section
       className="ganesh-section"
       style={{
-        padding: '80px 24px',
+        padding: 'clamp(32px, 6vh, 64px) 24px',
         background: '#152025',
         display: 'flex',
         flexDirection: 'column',
@@ -35,12 +32,13 @@ export default function GaneshSlide({
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
-          gap: 'clamp(24px, 4vw, 48px)',
+          justifyContent: 'center',
+          gap: 'clamp(24px, 5vh, 48px)',
           width: '100%',
-          maxWidth: 'min(90vw, 800px)'
+          maxWidth: 'min(90vw, 550px)'
         }}
       >
-        {/* Step 1: Lord Ganesh Image (Drawn / Revealed Top-to-Bottom, starts immediately) */}
+        {/* Step 1: Lord Ganesh Image (Revealed Top-to-Bottom in 1 second) */}
         <motion.img
           src={import.meta.env.BASE_URL + "LordGanesh.png"}
           alt="Lord Ganesh"
@@ -49,56 +47,28 @@ export default function GaneshSlide({
           transition={{ duration: 1.0, ease: 'easeInOut' }}
           style={{
             width: '100%',
-            maxWidth: '320px',
+            maxWidth: 'clamp(220px, 35vw, 320px)',
             height: 'auto',
             objectFit: 'contain',
-            filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.2))'
+            filter: 'drop-shadow(0 4px 12px rgba(0,0,0,0.3))'
           }}
         />
-        
-        <div style={{
-          display: 'flex',
-          flexDirection: 'row',
-          flexWrap: 'wrap',
-          alignItems: 'center',
-          justifyContent: 'center',
-          gap: '40px',
-          width: '100%'
-        }}>
-          {/* Step 2: Shree Image ("Shree Ganeshay Namah" Written / Revealed Left-to-Right, delay 1.0s) */}
-          <motion.img
-            src={import.meta.env.BASE_URL + "shree.png"}
-            alt="Shree"
-            initial={{ opacity: 0, clipPath: 'inset(0 100% 0 0)' }}
-            animate={{ opacity: 1, clipPath: 'inset(0 0% 0 0)' }}
-            transition={{ delay: 1.0, duration: 1.2, ease: 'easeInOut' }}
-            style={{
-              width: '100%',
-              maxWidth: '320px',
-              height: 'auto',
-              objectFit: 'contain',
-              filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.2))'
-            }}
-          />
 
-          {/* Step 3: Mantra Image (Drawn / Revealed Top-to-Bottom, delay 2.0s = 1.0s after Shree) */}
-          <motion.img
-            src={import.meta.env.BASE_URL + "mantra.png"}
-            alt="Mantra"
-            className="ganesh-mantra-img"
-            initial={{ opacity: 0, clipPath: 'inset(0 0 100% 0)' }}
-            animate={{ opacity: 1, clipPath: 'inset(0 0 0% 0)' }}
-            transition={{ delay: 2.0, duration: 1.0, ease: 'easeInOut' }}
-            style={{
-              '--mantra-desktop-y': mantraDesktopOffsetY,
-              width: '100%',
-              maxWidth: '320px',
-              height: 'auto',
-              objectFit: 'contain',
-              filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.2))'
-            }}
-          />
-        </div>
+        {/* Step 2: Mantra Image (Revealed Top-to-Bottom in 1 second, after 1 second wait = delay 2.0s) */}
+        <motion.img
+          src={import.meta.env.BASE_URL + "mantra.png"}
+          alt="Mantra"
+          initial={{ opacity: 0, clipPath: 'inset(0 0 100% 0)' }}
+          animate={{ opacity: 1, clipPath: 'inset(0 0 0% 0)' }}
+          transition={{ delay: 2.0, duration: 1.0, ease: 'easeInOut' }}
+          style={{
+            width: '100%',
+            maxWidth: 'clamp(260px, 42vw, 380px)',
+            height: 'auto',
+            objectFit: 'contain',
+            filter: 'drop-shadow(0 4px 12px rgba(0,0,0,0.3))'
+          }}
+        />
       </div>
     </section>
   );
