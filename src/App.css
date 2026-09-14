@@ -690,7 +690,7 @@ video::-webkit-media-controls-enclosure { display: none !important; }
 
 .family-parents-name {
   font-family: 'EB Garamond', serif;
-  font-size: clamp(15.5px, 2.8vw, 20px);
+  font-size: clamp(18.5px, 3.5vw, 24px);
   color: #fdf8f0;
   margin: 6px 0;
   font-weight: 600;
@@ -698,6 +698,11 @@ video::-webkit-media-controls-enclosure { display: none !important; }
   white-space: nowrap;
   max-width: 100%;
   text-align: center;
+}
+
+.family-parents-name.family-subtext {
+  font-size: clamp(15.5px, 2.8vw, 20px);
+  margin-top: 8px;
 }
 
 /* ── Overlaid Play Button Pulse Animation ── */

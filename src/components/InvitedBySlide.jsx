@@ -71,7 +71,7 @@ export default function InvitedBySlide({
               <p className="family-parents-name">{grandMother}</p>
               <p className="family-parents-name">{fatherName}</p>
               <p className="family-parents-name">{motherName}</p>
-              <p className="family-parents-name">{familyText}</p>
+              <p className="family-parents-name family-subtext">{familyText}</p>
             </div>
           </div>
         </div>
