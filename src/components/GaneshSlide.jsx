@@ -57,13 +57,14 @@ export default function GaneshSlide({ onComplete }) {
     <section
       className="ganesh-section"
       style={{
-        padding: 'clamp(32px, 6vh, 64px) 24px',
+        padding: '20px 24px',
         background: '#152025',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        minHeight: '100vh',
+        height: '100%',
+        width: '100%',
         boxSizing: 'border-box',
         borderBottom: '1px solid #2C3730',
         textAlign: 'center'

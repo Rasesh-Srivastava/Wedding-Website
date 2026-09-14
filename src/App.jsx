@@ -556,7 +556,11 @@ function App() {
                 inset: 0,
                 zIndex: 9998,
                 background: '#152025',
-                overflow: 'hidden'
+                overflow: 'hidden',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                justifyContent: 'center'
               }}
             >
               <GaneshSlide onComplete={() => setStage(2)} />
