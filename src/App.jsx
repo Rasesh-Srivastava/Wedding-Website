@@ -21,6 +21,14 @@ function App() {
   const { scrollYProgress } = useScroll()
   const scaleY = useSpring(scrollYProgress, { stiffness: 120, damping: 30 })
 
+  // Preload Ganesh slide images early during intro stage
+  useEffect(() => {
+    const img1 = new Image()
+    img1.src = import.meta.env.BASE_URL + 'LordGanesh.png'
+    const img2 = new Image()
+    img2.src = import.meta.env.BASE_URL + 'mantra.png'
+  }, [])
+
   useEffect(() => {
     return scrollYProgress.on('change', (latest) => {
       if (latest > 0.97) {
