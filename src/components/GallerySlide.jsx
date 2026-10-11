@@ -192,7 +192,7 @@ export default function GallerySlide() {
                   fontWeight: 'bold',
                   display: 'block'
                 }}>
-                  {!isLit ? "Turn Lights On" : "Turn Lights Off"}
+                  {!isLit ? "Tap Here" : "Turn Lights Off"}
                 </span>
               </motion.div>
             )}
