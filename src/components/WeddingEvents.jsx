@@ -136,7 +136,7 @@ export const DEFAULT_EVENTS = [
     time: '10:00 AM Onwards',
     venue: 'Mosaic Alfresco',
     dressCode: 'Radiant Shades of Yellow',
-    description: 'A high energy sun-lit morning of marigold shower, Playful games, dhol taashe and endless laughter',
+    description: 'A high energy, sun-lit morning of marigold showers, playful games, dhol-taasha and endless laughter',
     icon: import.meta.env.BASE_URL + 'star.png',
     caricature: import.meta.env.BASE_URL + 'CARICATURE 6.png',
     fancyNamePaddingTop: '0px'
@@ -149,7 +149,7 @@ export const DEFAULT_EVENTS = [
     time: '7:30 PM Onwards',
     venue: 'Kalpatru Lawn',
     dressCode: 'Royal Jewel Tones',
-    description: 'The enchanting spectacle of exchanging garlands amidst sparkle and fireworks, surrounded by loved ones',
+    description: 'The enchanting spectacle of exchanging garlands amidst sparkles and fireworks, surrounded by loved ones',
     icon: import.meta.env.BASE_URL + 'garland.png',
     caricature: import.meta.env.BASE_URL + 'CARICATURE 1.png',
     fancyNamePaddingTop: '0px'
@@ -162,7 +162,7 @@ export const DEFAULT_EVENTS = [
     time: '1:00 AM Onwards',
     venue: 'Mosaic Alfresco',
     dressCode: 'Pastel Traditionals',
-    description: 'A solemn serene ceremony where we take seven sacred vows around the holy fire uniting two souls with ancient vedic mantras',
+    description: 'A solemn, serene ceremony where we take seven sacred vows around the holy fire, uniting two souls with ancient vedic mantras',
     icon: import.meta.env.BASE_URL + 'fire.png',
     caricature: import.meta.env.BASE_URL + 'CARICATURE 3.png',
     fancyNamePaddingTop: '0px'
