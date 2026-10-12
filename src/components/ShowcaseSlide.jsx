@@ -153,7 +153,7 @@ export default function ShowcaseSlide({
                   margin: '0 0 2px 0',
                   textAlign: 'center'
                 }}>
-                  Late Mr. Shishir Kumar
+                  Late Mr. Shrish Kumar
                 </p>
                 <p style={{
                   fontFamily: "'EB Garamond', serif",
@@ -162,7 +162,7 @@ export default function ShowcaseSlide({
                   margin: 0,
                   textAlign: 'center'
                 }}>
-                  Smt. Pratima Shrivastav
+                  Smt. Pratima Srivastava
                 </p>
               </div>
 
