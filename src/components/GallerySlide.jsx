@@ -153,6 +153,19 @@ export default function GallerySlide() {
                   opacity: { duration: 0.25 },
                   x: { repeat: Infinity, duration: 1.2, ease: 'easeInOut' }
                 }}
+                role="button"
+                tabIndex={0}
+                aria-label={!isLit ? "Turn lights on" : "Turn lights off"}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handlePullRope();
+                }}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    handlePullRope();
+                  }
+                }}
                 style={{
                   position: 'absolute',
                   right: '100%',
@@ -167,7 +180,9 @@ export default function GallerySlide() {
                   boxShadow: '0 4px 16px rgba(0,0,0,0.5)',
                   backdropFilter: 'blur(6px)',
                   zIndex: 110,
-                  pointerEvents: 'none'
+                  cursor: 'pointer',
+                  userSelect: 'none',
+                  touchAction: 'manipulation'
                 }}
               >
                 {/* Pointed right-facing arrow */}
