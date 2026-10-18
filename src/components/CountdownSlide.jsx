@@ -10,6 +10,7 @@ export default function CountdownSlide() {
   const [isRevealed, setIsRevealed] = useState(false);
   const confettiCanvasRef = useRef(null);
   const confettiIntervalRef = useRef(null);
+  const scratchCountRef = useRef(0);
 
   // Set up metallic gold scratch overlay surface
   useEffect(() => {
@@ -89,9 +90,15 @@ export default function CountdownSlide() {
     if (e.cancelable) e.preventDefault();
     const { x, y } = getCoordinates(e);
     scratch(x, y);
+
+    scratchCountRef.current += 1;
+    if (scratchCountRef.current % 8 === 0) {
+      checkScratchPercentage();
+    }
   };
 
   const handleEnd = () => {
+    if (isRevealed) return;
     isDrawingRef.current = false;
     checkScratchPercentage();
   };
@@ -124,6 +131,7 @@ export default function CountdownSlide() {
 
     const percentage = (transparent / (canvas.width * canvas.height)) * 100;
     if (percentage > 40 && !isRevealed) {
+      isDrawingRef.current = false;
       setIsRevealed(true);
       // Clear entire canvas on crossing threshold
       ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -141,6 +149,7 @@ export default function CountdownSlide() {
     confettiCanvas.style.width = '100vw';
     confettiCanvas.style.height = '100vh';
     confettiCanvas.style.pointerEvents = 'none';
+    confettiCanvas.style.touchAction = 'auto';
     confettiCanvas.style.zIndex = '99999';
     document.body.appendChild(confettiCanvas);
     confettiCanvasRef.current = confettiCanvas;
@@ -254,7 +263,7 @@ export default function CountdownSlide() {
           flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
-          touchAction: 'none' // Prevent default touch actions (scrolling) during scratch
+          touchAction: isRevealed ? 'auto' : 'none'
         }}>
           {/* revealed date overlay underneath */}
           <div style={{
@@ -263,7 +272,10 @@ export default function CountdownSlide() {
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'center',
-            height: '100%'
+            height: '100%',
+            pointerEvents: 'none',
+            userSelect: 'none',
+            WebkitUserSelect: 'none'
           }}>
             <p style={{
               fontFamily: "'EB Garamond', serif",
@@ -291,13 +303,13 @@ export default function CountdownSlide() {
           {/* canvas scratch layer */}
           <canvas
             ref={canvasRef}
-            onMouseDown={handleStart}
-            onMouseMove={handleMove}
-            onMouseUp={handleEnd}
-            onMouseLeave={handleEnd}
-            onTouchStart={handleStart}
-            onTouchMove={handleMove}
-            onTouchEnd={handleEnd}
+            onMouseDown={!isRevealed ? handleStart : undefined}
+            onMouseMove={!isRevealed ? handleMove : undefined}
+            onMouseUp={!isRevealed ? handleEnd : undefined}
+            onMouseLeave={!isRevealed ? handleEnd : undefined}
+            onTouchStart={!isRevealed ? handleStart : undefined}
+            onTouchMove={!isRevealed ? handleMove : undefined}
+            onTouchEnd={!isRevealed ? handleEnd : undefined}
             style={{
               position: 'absolute',
               top: 0,
@@ -308,6 +320,8 @@ export default function CountdownSlide() {
               transition: 'opacity 0.5s ease',
               opacity: isRevealed ? 0 : 1,
               pointerEvents: isRevealed ? 'none' : 'auto',
+              touchAction: isRevealed ? 'auto' : 'none',
+              display: isRevealed ? 'none' : 'block',
               borderRadius: '14px'
             }}
           />

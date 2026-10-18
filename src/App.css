@@ -44,6 +44,10 @@
   display: block;
 }
 
+.caption-below {
+  display: inline;
+}
+
 @media (min-width: 768px) {
   .music-container {
     flex-direction: row;
@@ -67,6 +71,9 @@
   }
   .mobile-subtitle {
     display: none !important;
+  }
+  .caption-below {
+    display: none;
   }
 }
 /* Hide all browser native video play overlays in CSS */
