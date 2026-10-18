@@ -193,7 +193,7 @@ function App() {
                       width: '100%'
                     }}
                   >
-                    Tap to set the mood
+                    Tap below to set the mood
                   </h2>
                   
                   {/* Subtitle - Desktop only */}
