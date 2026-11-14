@@ -164,7 +164,7 @@ export default function RSVPSlide({
               fontWeight: 'bold',
               opacity: 0.9
             }}>
-              PLEASE RSVP BY NOVEMBER 12, 2026
+              PLEASE RSVP BY NOVEMBER 20, 2026
             </p>
 
             <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
